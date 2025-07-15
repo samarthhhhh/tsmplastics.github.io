@@ -2,151 +2,139 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TSM Plastics</title>
   <style>
-    /* Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      background: #fff;
-      color: #222;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #333;
     }
 
-    /* Video header */
-    .video-header {
+    header.video-header {
       position: relative;
-      width: 100%;
       height: 100vh;
       overflow: hidden;
     }
-    .video-header video {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
-      transform: translate(-50%, -50%);
+
+    header.video-header video {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      filter: brightness(0.6);
-      z-index: 1;
-    }
-    .video-header .overlay {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      z-index: 10;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      background: rgba(0, 0, 0, 0.35);
-      text-align: center;
-      padding: 20px;
-      font-weight: 700;
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.85);
-    }
-    .video-header .overlay .logo {
-      max-width: 180px;
-      height: auto;
-      margin-bottom: 20px;
-      filter: drop-shadow(0 0 6px rgba(0,0,0,0.8));
-    }
-    .video-header .overlay h1 {
-      font-size: 3.5rem;
-      margin-bottom: 0.3em;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-    .video-header .overlay p {
-      font-size: 1.5rem;
-      max-width: 700px;
-      line-height: 1.4;
     }
 
-    /* Sections */
-    section {
-      max-width: 1100px;
-      margin: 3rem auto;
-      padding: 0 20px;
+    header .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
     }
-    section h2 {
-      font-size: 2.5rem;
+
+    header .overlay img.logo {
+      max-width: 180px;
       margin-bottom: 1rem;
+    }
+
+    section {
+      padding: 3rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    section h2 {
+      font-size: 2rem;
       color: #0a4d8c;
-      border-bottom: 3px solid #0a4d8c;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #0a4d8c;
       display: inline-block;
       padding-bottom: 5px;
     }
-    section p, section ul, section .grid div p {
-      font-size: 1.1rem;
-      color: #444;
-    }
-    .capabilities ul {
-      list-style-type: disc;
-      margin-left: 1.5rem;
-      color: #333;
-    }
+
     .industries .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.5rem;
     }
-    .industries .grid div {
-      background: #f9f9f9;
-      padding: 1rem 1.5rem;
-      border-radius: 6px;
-      box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .industries .grid div:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 12px rgb(0 0 0 / 0.15);
-    }
-    .industries h3 {
-      margin-bottom: 0.5em;
-      color: #0a4d8c;
-    }
-    .contact a {
-      color: #0a4d8c;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .contact a:hover {
-      text-decoration: underline;
-    }
-    .footer {
+
+    footer.footer {
       background: #0a4d8c;
-      color: #fff;
+      color: white;
       text-align: center;
-      padding: 1rem 10px;
-      font-size: 0.9rem;
-      letter-spacing: 1px;
-      margin-top: 4rem;
+      padding: 1rem;
     }
 
-    /* Responsive */
+    .client-logos {
+      max-width: 1100px;
+      margin: 4rem auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .client-logos h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #0a4d8c;
+      border-bottom: 3px solid #0a4d8c;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    .logo-marquee {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .logo-track {
+      display: flex;
+      gap: 50px;
+      animation: scroll-left 30s linear infinite;
+      width: max-content;
+      align-items: center;
+    }
+
+    .logo-track a {
+      display: inline-block;
+    }
+
+    .logo-track img {
+      max-height: 60px;
+      width: auto;
+      display: block;
+      filter: grayscale(100%);
+      transition: filter 0.3s ease, transform 0.3s ease;
+    }
+
+    .logo-track img:hover {
+      filter: grayscale(0%);
+      transform: scale(1.05);
+    }
+
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
     @media (max-width: 768px) {
-      .video-header .overlay .logo {
-        max-width: 120px;
-        margin-bottom: 15px;
-      }
-      .video-header .overlay h1 {
-        font-size: 2.2rem;
-      }
-      .video-header .overlay p {
-        font-size: 1rem;
-      }
-      section h2 {
+      .client-logos h2 {
         font-size: 2rem;
+      }
+      .logo-track {
+        gap: 25px;
+      }
+      .logo-track img {
+        max-height: 40px;
       }
     }
   </style>
@@ -155,13 +143,13 @@
 
 <header class="video-header">
   <video autoplay muted loop playsinline>
-    <source src="injection.mp4" type="video/mp4" />
+    <source src="injection.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <div class="overlay">
     <img src="logo.png" alt="TSM Plastics Logo" class="logo" />
     <h1>TSM Plastics</h1>
-    <p>Precision Plastic Injection Molding Solutions for FMCG & Industrial Clients</p>
+    <p>Precision Plastic Components for Every Industry</p>
   </div>
 </header>
 
@@ -193,17 +181,6 @@
   </div>
 </section>
 
-<section class="contact">
-  <h2>Contact Us</h2>
-  <p><strong>Address:</strong> D-20, Sector-7, Noida, UP, India</p>
-  <p><strong>Email:</strong> <a href="mailto:tsmplastics@yahoo.co.in">tsmplastics@yahoo.co.in</a></p>
-  <p><strong>Phone:</strong> S.K. Sharma (+91 99100 88187), Lakshay Sharma (+91 99587 03900)</p>
-</section>
-
-<footer class="footer">
-  <p>© 2025 TSM Plastics. All rights reserved.</p>
-</footer>
-
 <section class="client-logos">
   <h2>Our Clients</h2>
   <div class="logo-marquee">
@@ -220,73 +197,16 @@
   </div>
 </section>
 
-<style>
-  .client-logos {
-    max-width: 1100px;
-    margin: 4rem auto;
-    padding: 0 20px;
-    text-align: center;
-  }
-  .client-logos h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: #0a4d8c;
-    border-bottom: 3px solid #0a4d8c;
-    display: inline-block;
-    padding-bottom: 5px;
-  }
+<section class="contact">
+  <h2>Contact Us</h2>
+  <p><strong>Address:</strong> D-20, Sector-7, Noida, UP, India</p>
+  <p><strong>Email:</strong> <a href="mailto:tsmplastics@yahoo.co.in">tsmplastics@yahoo.co.in</a></p>
+  <p><strong>Phone:</strong> S.K. Sharma (+91 99100 88187), Lakshay Sharma (+91 99587 03900)</p>
+</section>
 
-  .logo-marquee {
-    overflow: hidden;
-    position: relative;
-  }
-
-  .logo-track {
-    display: flex;
-    gap: 50px;
-    animation: scroll-left 30s linear infinite;
-    width: max-content;
-    align-items: center;
-  }
-
-  .logo-track a {
-    display: inline-block;
-  }
-
-  .logo-track img {
-    max-height: 60px;
-    width: auto;
-    display: block;
-    filter: grayscale(100%);
-    transition: filter 0.3s ease, transform 0.3s ease;
-  }
-
-  .logo-track img:hover {
-    filter: grayscale(0%);
-    transform: scale(1.05);
-  }
-
-  @keyframes scroll-left {
-    0% {
-      transform: translateX(0%);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-
-  @media (max-width: 768px) {
-    .client-logos h2 {
-      font-size: 2rem;
-    }
-    .logo-track {
-      gap: 25px;
-    }
-    .logo-track img {
-      max-height: 40px;
-    }
-  }
-</style>
+<footer class="footer">
+  <p>© 2025 TSM Plastics. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
