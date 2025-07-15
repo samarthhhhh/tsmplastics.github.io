@@ -204,5 +204,89 @@
   <p>© 2025 TSM Plastics. All rights reserved.</p>
 </footer>
 
+<section class="client-logos">
+  <h2>Our Clients</h2>
+  <div class="logo-marquee">
+    <div class="logo-track">
+      <a href="https://www.masterchow.in" target="_blank"><img src="masterchow_logo.jpg" alt="MasterChow Logo"></a>
+      <a href="https://www.trivenialmirah.com" target="_blank"><img src="triveni.png" alt="Triveni Almirah Logo"></a>
+      <a href="https://www.romsons.com" target="_blank"><img src="romsons.png" alt="Romsons Logo"></a>
+      <a href="https://www.baidyanath.co.in" target="_blank"><img src="Baidyanath_logo.png" alt="Baidyanath Logo"></a>
+      <a href="https://www.patanjaliayurved.net" target="_blank"><img src="patanjalilogo.png" alt="Patanjali Logo"></a>
+      <a href="https://www.dabur.com" target="_blank"><img src="dabur.png" alt="Dabur Logo"></a>
+      <a href="https://indianrailways.gov.in" target="_blank"><img src="indianrailways.png" alt="Indian Railways Logo"></a>
+      <a href="https://www.tops.in" target="_blank"><img src="tops.png" alt="Tops Logo"></a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .client-logos {
+    max-width: 1100px;
+    margin: 4rem auto;
+    padding: 0 20px;
+    text-align: center;
+  }
+  .client-logos h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #0a4d8c;
+    border-bottom: 3px solid #0a4d8c;
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+
+  .logo-marquee {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .logo-track {
+    display: flex;
+    gap: 50px;
+    animation: scroll-left 30s linear infinite;
+    width: max-content;
+    align-items: center;
+  }
+
+  .logo-track a {
+    display: inline-block;
+  }
+
+  .logo-track img {
+    max-height: 60px;
+    width: auto;
+    display: block;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease, transform 0.3s ease;
+  }
+
+  .logo-track img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+  }
+
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .client-logos h2 {
+      font-size: 2rem;
+    }
+    .logo-track {
+      gap: 25px;
+    }
+    .logo-track img {
+      max-height: 40px;
+    }
+  }
+</style>
+
 </body>
 </html>
