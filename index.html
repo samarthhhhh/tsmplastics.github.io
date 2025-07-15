@@ -124,18 +124,26 @@
     }
 
     @media (max-width: 768px) {
-      .client-logos h2 {
-        font-size: 2rem;
-      }
-      .logo-track {
-        gap: 25px;
-      }
-      .logo-track img {
-        max-height: 40px;
-        height: 40px;
-      }
-    }
-  </style>
+  .client-logos h2 {
+    font-size: 2rem;
+  }
+  .logo-track {
+    gap: 25px;
+  }
+  .logo-track img {
+    max-height: 40px;
+    height: 40px;
+  }
+}
+
+/* Boost logos that appear small due to whitespace */
+img[alt*="Indian Railways"],
+img[alt*="Dabur"],
+img[alt*="Tops"] {
+  transform: scale(1.3);
+  transform-origin: center;
+}
+</style>
 </head>
 <body>
 
