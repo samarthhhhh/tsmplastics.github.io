@@ -3,227 +3,193 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TSM Plastics</title>
+  <title>Industries - TSM Plastics</title>
   <style>
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f8f8;
       color: #333;
     }
 
-    header.video-header {
-      position: relative;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    header.video-header video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    header .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.4);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-    }
-
-    header .overlay img.logo {
-      max-width: 180px;
-      margin-bottom: 1rem;
-    }
-
-    section {
+    section.industries {
       padding: 3rem 2rem;
       max-width: 1100px;
       margin: auto;
     }
 
-    section h2 {
+    .industries h2 {
       font-size: 2rem;
       color: #0a4d8c;
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
       border-bottom: 2px solid #0a4d8c;
       display: inline-block;
       padding-bottom: 5px;
     }
 
-    .industries .grid {
+    .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.5rem;
     }
 
-    footer.footer {
-      background: #0a4d8c;
-      color: white;
-      text-align: center;
-      padding: 1rem;
+    .industry-card {
+      background: #fff;
+      padding: 1.2rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
     }
 
-    .client-logos {
-      max-width: 1100px;
-      margin: 4rem auto;
-      padding: 0 20px;
-      text-align: center;
+    .industry-card:hover {
+      transform: translateY(-5px);
     }
 
-    .client-logos h2 {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-      color: #0a4d8c;
-      border-bottom: 3px solid #0a4d8c;
-      display: inline-block;
-      padding-bottom: 5px;
-    }
-
-    .logo-marquee {
-      overflow: hidden;
-      position: relative;
-    }
-
-    .logo-track {
-      display: flex;
-      gap: 50px;
-      animation: scroll-left 20s linear infinite;
-      width: max-content;
-      align-items: center;
-    }
-
-    .logo-track a {
-      display: inline-block;
-    }
-
-    .logo-container {
-      padding: 10px;
-      background: white;
-      height: auto;
-      min-height: 60px;
-      display: flex;
-      align-items: center;
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
       justify-content: center;
-      overflow: hidden;
-      box-sizing: border-box;
+      align-items: center;
     }
 
-    .logo-container img {
-      max-height: 60px;
+    .modal-content {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 800px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-content img {
       max-width: 100%;
       height: auto;
-      width: auto;
-      object-fit: contain;
-      display: block;
-      transition: transform 0.3s ease;
+      margin-top: 1rem;
+      border-radius: 6px;
     }
 
-    @keyframes scroll-left {
-      0% {
-        transform: translateX(0%);
-      }
-      100% {
-        transform: translateX(-50%);
-      }
+    .modal .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 28px;
+      cursor: pointer;
+      color: #666;
     }
 
-    @media (max-width: 768px) {
-      .client-logos h2 {
-        font-size: 2rem;
-      }
-      .logo-track {
-        gap: 25px;
-      }
-      .logo-container {
-        min-height: 40px;
-      }
-    }
-
-    /* Boost logos that appear small due to whitespace */
-    .logo-container.dabur,
-    .logo-container.tops,
-    .logo-container.railways {
-      transform: scale(1.3);
-      transform-origin: center;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
     }
   </style>
 </head>
 <body>
 
-<header class="video-header">
-  <video autoplay muted loop playsinline>
-    <source src="injection.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-  <div class="overlay">
-    <img src="logo.png" alt="TSM Plastics Logo" class="logo" />
-    <h1>TSM Plastics</h1>
-    <p>Precision Plastic Components for Every Industry</p>
-  </div>
-</header>
-
-<section class="about">
-  <h2>About Us</h2>
-  <p>With over 30 years of expertise, TSM Plastics is a leading manufacturer of precision plastic components. From our advanced Noida facility, we deliver high-quality, cost-effective solutions across FMCG, automotive, tools, equipment, and engineering sectors.</p>
-</section>
-
-<section class="capabilities">
-  <h2>Our Capabilities</h2>
-  <ul>
-    <li>24+ Injection, Blow & PET Stretch Molding Machines</li>
-    <li>ISO-Certified with Full QA Lab & Tool Room</li>
-    <li>Rapid 3D Prototyping & Engineering Services</li>
-    <li>Strategic Vendor Network for Global Supply Chain</li>
-    <li>Scalable Production with On-Time Delivery</li>
-  </ul>
-</section>
-
 <section class="industries">
   <h2>Industries We Serve</h2>
   <div class="grid">
-    <div><h3>FMCG</h3><p>Food, cosmetics, skincare, dental & hygiene components</p></div>
-    <div><h3>Automotive</h3><p>Custom lightweight parts for diverse automotive needs</p></div>
-    <div><h3>Engineering</h3><p>High-precision components for industrial engineering</p></div>
-    <div><h3>Tools & Equipment</h3><p>Household tools & specialized equipment plastics</p></div>
-    <div><h3>Medical</h3><p>Reliable, clean plastic solutions for healthcare</p></div>
-    <div><h3>Packaging</h3><p>Dry, liquid, bulk containers, caps, lids and more</p></div>
-  </div>
-</section>
-
-<section class="client-logos">
-  <h2>Our Clients</h2>
-  <div class="logo-marquee">
-    <div class="logo-track">
-      <a href="https://www.masterchow.in" target="_blank"><div class="logo-container"><img src="masterchow_logo.jpg" alt="MasterChow Logo"></div></a>
-      <a href="https://www.trivenialmirah.com" target="_blank"><div class="logo-container"><img src="triveni.png" alt="Triveni Almirah Logo"></div></a>
-      <a href="https://www.romsons.com" target="_blank"><div class="logo-container"><img src="romsons.png" alt="Romsons Logo"></div></a>
-      <a href="https://www.baidyanath.co.in" target="_blank"><div class="logo-container"><img src="Baidyanath_logo.png" alt="Baidyanath Logo"></div></a>
-      <a href="https://www.patanjaliayurved.net" target="_blank"><div class="logo-container"><img src="patanjalilogo.png" alt="Patanjali Logo"></div></a>
-      <a href="https://www.dabur.com" target="_blank"><div class="logo-container dabur"><img src="dabur.png" alt="Dabur Logo"></div></a>
-      <a href="https://indianrailways.gov.in" target="_blank"><div class="logo-container railways"><img src="indianrailways.png" alt="Indian Railways Logo"></div></a>
-      <a href="https://www.tops.in" target="_blank"><div class="logo-container tops"><img src="topslogo.png" alt="Tops Logo"></div></a>
+    <div class="industry-card" data-industry="FMCG">
+      <h3>FMCG</h3>
+      <p>Food, cosmetics, skincare, dental & hygiene components</p>
+    </div>
+    <div class="industry-card" data-industry="auto">
+      <h3>Automotive</h3>
+      <p>Custom lightweight parts for diverse automotive needs</p>
+    </div>
+    <div class="industry-card" data-industry="engineering">
+      <h3>Engineering</h3>
+      <p>High-precision components for industrial engineering</p>
+    </div>
+    <div class="industry-card" data-industry="tools">
+      <h3>Tools & Equipment</h3>
+      <p>Household tools & specialized equipment plastics</p>
+    </div>
+    <div class="industry-card" data-industry="medical">
+      <h3>Medical</h3>
+      <p>Reliable, clean plastic solutions for healthcare</p>
+    </div>
+    <div class="industry-card" data-industry="packaging">
+      <h3>Packaging</h3>
+      <p>Dry, liquid, bulk containers, caps, lids and more</p>
     </div>
   </div>
 </section>
 
-<section class="contact">
-  <h2>Contact Us</h2>
-  <p><strong>Address:</strong> D-20, Sector-7, Noida, UP, India</p>
-  <p><strong>Email:</strong> <a href="mailto:tsmplastics@yahoo.co.in">tsmplastics@yahoo.co.in</a></p>
-  <p><strong>Phone:</strong> S.K. Sharma (+91 99100 88187), Lakshay Sharma (+91 99587 03900)</p>
-</section>
+<div class="modal" id="industry-modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3 id="modal-title"></h3>
+    <img id="modal-img" src="" alt="Industry Products" />
+    <p id="modal-description"></p>
+  </div>
+</div>
 
-<footer class="footer">
-  <p>© 2025 TSM Plastics. All rights reserved.</p>
-</footer>
+<script>
+  const industryContent = {
+    FMCG: {
+      title: "FMCG",
+      img: "FMCG.png",
+      desc: "We manufacture a range of plastic containers and closures for food and personal care industries — from spice jars and toothpaste caps to hygiene packaging, all optimized for safety and visual appeal."
+    },
+    auto: {
+      title: "Automotive",
+      img: "auto.png",
+      desc: "We provide precision-molded plastic parts for the automotive sector including interior trim, fluid containers, under-the-hood components and durable clips — designed for performance and reliability."
+    },
+    engineering: {
+      title: "Engineering",
+      img: "engineering.png",
+      desc: "Our industrial plastic parts serve general engineering, electronics, and machinery sectors — offering high tolerance, mechanical strength and custom molding for unique applications."
+    },
+    tools: {
+      title: "Tools & Equipment",
+      img: "tools.png",
+      desc: "Plastic housings, knobs, and enclosures designed for hand tools, power tools, and utility equipment. Rugged, ergonomic, and built to last."
+    },
+    medical: {
+      title: "Medical",
+      img: "medical.png",
+      desc: "Hygienic and reliable plastic components for diagnostic kits, medical packaging, and device housings — manufactured under strict quality protocols."
+    },
+    packaging: {
+      title: "Packaging",
+      img: "packaging.png",
+      desc: "From jars and bottles to custom containers and closures, our packaging solutions serve food, pharma, cosmetic, and industrial clients across India and abroad."
+    }
+  };
+
+  document.querySelectorAll('.industry-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const type = card.dataset.industry;
+      const data = industryContent[type];
+
+      document.getElementById('modal-title').textContent = data.title;
+      document.getElementById('modal-img').src = data.img;
+      document.getElementById('modal-img').alt = data.title + " Products";
+      document.getElementById('modal-description').textContent = data.desc;
+
+      document.getElementById('industry-modal').style.display = 'flex';
+    });
+  });
+
+  document.querySelector('.modal .close').addEventListener('click', () => {
+    document.getElementById('industry-modal').style.display = 'none';
+  });
+
+  window.addEventListener('click', e => {
+    if (e.target.id === 'industry-modal') {
+      e.target.style.display = 'none';
+    }
+  });
+</script>
 
 </body>
 </html>
