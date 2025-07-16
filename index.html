@@ -10,16 +10,19 @@
       font-family: Arial, sans-serif;
       color: #333;
     }
+
     header.video-header {
       position: relative;
       height: 100vh;
       overflow: hidden;
     }
+
     header.video-header video {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
+
     header .overlay {
       position: absolute;
       top: 0;
@@ -34,15 +37,18 @@
       text-align: center;
       color: white;
     }
+
     header .overlay img.logo {
-      max-width: 180px;
+      max-width: 200px;
       margin-bottom: 1rem;
     }
+
     section {
       padding: 3rem 2rem;
       max-width: 1100px;
       margin: auto;
     }
+
     section h2 {
       font-size: 2rem;
       color: #0a4d8c;
@@ -51,17 +57,20 @@
       display: inline-block;
       padding-bottom: 5px;
     }
+
     .industries .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.5rem;
     }
+
     .client-logos {
       max-width: 1100px;
       margin: 4rem auto;
       padding: 0 20px;
       text-align: center;
     }
+
     .client-logos h2 {
       font-size: 2.5rem;
       margin-bottom: 2rem;
@@ -70,20 +79,24 @@
       display: inline-block;
       padding-bottom: 5px;
     }
+
     .logo-marquee {
       overflow: hidden;
       position: relative;
     }
+
     .logo-track {
       display: flex;
       gap: 50px;
-      animation: scroll-left 10s linear infinite;
+      animation: scroll-left 20s linear infinite;
       width: max-content;
       align-items: center;
     }
+
     .logo-track a {
       display: inline-block;
     }
+
     .logo-container {
       padding: 5px;
       background: white;
@@ -93,12 +106,14 @@
       justify-content: center;
       overflow: visible;
     }
+
     .logo-container img {
       max-height: 100%;
       object-fit: contain;
       display: block;
       transition: transform 0.3s ease;
     }
+
     @keyframes scroll-left {
       0% {
         transform: translateX(0%);
@@ -107,6 +122,7 @@
         transform: translateX(-50%);
       }
     }
+
     @media (max-width: 768px) {
       .client-logos h2 {
         font-size: 2rem;
@@ -118,12 +134,14 @@
         height: 40px;
       }
     }
+
     .logo-container.dabur,
     .logo-container.tops,
     .logo-container.railways {
       transform: scale(1.3);
       transform-origin: center;
     }
+
     footer.footer {
       background: #0a4d8c;
       color: white;
@@ -141,13 +159,14 @@
   </video>
   <div class="overlay">
     <img src="logo.png" alt="TSM Plastics Logo" class="logo" />
+    <h1>TSM Plastics</h1>
+    <p>Precision Plastic Components for Every Industry</p>
   </div>
 </header>
 
 <section class="about">
   <h2>About Us</h2>
   <p>TSM Plastics, located at D-20, Sector-7, Noida (U.P.), has over 26 years of experience in plastic manufacturing. We specialize in injection molding, blow molding, and PET stretch molding for FMCG and export-oriented clients. With over 24 machines and an in-house tool room, we deliver high-quality, innovative components across industries.</p>
-  <p>Our motto: Work closely with customers and deliver precision products with continuous innovation. Our services span caps, handles, trays, containers, cosmetic packaging, automotive parts, and more. Some product details remain confidential due to client agreements.</p>
 </section>
 
 <section class="capabilities">
@@ -159,12 +178,18 @@
     <li>Turnover: ₹8 Crore, including new unit at Surajpur Site C</li>
     <li>Registered under SSI with GST numbers listed below</li>
   </ul>
-  <h3>Sister Companies</h3>
-  <ul>
-    <li>LS Plastics – GSTIN: 09ABGPS0716A1ZO</li>
-    <li>MBA Plastics – GSTIN: 09BPYPA9961E1Z9</li>
-    <li>Kaizen Plastics – GSTIN: 09BRVPS3387K1ZL</li>
-  </ul>
+</section>
+
+<section class="industries">
+  <h2>Industries We Serve</h2>
+  <div class="grid">
+    <div><h3>FMCG</h3><p>Food, cosmetics, skincare, dental & hygiene components</p></div>
+    <div><h3>Automotive</h3><p>Custom lightweight parts for diverse automotive needs</p></div>
+    <div><h3>Engineering</h3><p>High-precision components for industrial engineering</p></div>
+    <div><h3>Tools & Equipment</h3><p>Household tools & specialized equipment plastics</p></div>
+    <div><h3>Medical</h3><p>Reliable, clean plastic solutions for healthcare</p></div>
+    <div><h3>Packaging</h3><p>Dry, liquid, bulk containers, caps, lids and more</p></div>
+  </div>
 </section>
 
 <section class="client-logos">
@@ -181,6 +206,13 @@
       <a href="https://www.tops.in" target="_blank"><div class="logo-container tops"><img src="topslogo.png" alt="Tops Logo"></div></a>
     </div>
   </div>
+</section>
+
+<section class="contact">
+  <h2>Contact Us</h2>
+  <p><strong>Address:</strong> D-20, Sector-7, Noida, UP, India</p>
+  <p><strong>Email:</strong> <a href="mailto:tsmplastics@yahoo.co.in">tsmplastics@yahoo.co.in</a></p>
+  <p><strong>Phone:</strong> S.K. Sharma (+91 99100 88187), Lakshay Sharma (+91 99587 03900)</p>
 </section>
 
 <footer class="footer">
