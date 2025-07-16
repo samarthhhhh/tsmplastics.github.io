@@ -3,32 +3,62 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Industries - TSM Plastics</title>
+  <title>TSM Plastics</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background: #f8f8f8;
+      font-family: Arial, sans-serif;
       color: #333;
     }
 
-    section.industries {
+    header.video-header {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    header.video-header video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    header .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+
+    header .overlay img.logo {
+      max-width: 180px;
+      margin-bottom: 1rem;
+    }
+
+    section {
       padding: 3rem 2rem;
       max-width: 1100px;
       margin: auto;
     }
 
-    .industries h2 {
+    section h2 {
       font-size: 2rem;
       color: #0a4d8c;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
       border-bottom: 2px solid #0a4d8c;
       display: inline-block;
       padding-bottom: 5px;
     }
 
-    .grid {
+    .industries .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.5rem;
@@ -45,6 +75,81 @@
 
     .industry-card:hover {
       transform: translateY(-5px);
+    }
+
+    footer.footer {
+      background: #0a4d8c;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .client-logos {
+      max-width: 1100px;
+      margin: 4rem auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .client-logos h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #0a4d8c;
+      border-bottom: 3px solid #0a4d8c;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    .logo-marquee {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .logo-track {
+      display: flex;
+      gap: 50px;
+      animation: scroll-left 10s linear infinite;
+      width: max-content;
+      align-items: center;
+    }
+
+    .logo-track a {
+      display: inline-block;
+    }
+
+    .logo-container {
+      padding: 5px;
+      background: white;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+    }
+
+    .logo-container img {
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @media (max-width: 768px) {
+      .client-logos h2 { font-size: 2rem; }
+      .logo-track { gap: 25px; }
+      .logo-container { height: 40px; }
+    }
+
+    .logo-container.dabur,
+    .logo-container.tops,
+    .logo-container.railways {
+      transform: scale(1.3);
+      transform-origin: center;
     }
 
     .modal {
@@ -93,6 +198,34 @@
 </head>
 <body>
 
+<header class="video-header">
+  <video autoplay muted loop playsinline>
+    <source src="injection.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="overlay">
+    <img src="logo.png" alt="TSM Plastics Logo" class="logo" />
+    <h1>TSM Plastics</h1>
+    <p>Precision Plastic Components for Every Industry</p>
+  </div>
+</header>
+
+<section class="about">
+  <h2>About Us</h2>
+  <p>With over 30 years of expertise, TSM Plastics is a leading manufacturer of precision plastic components. From our advanced Noida facility, we deliver high-quality, cost-effective solutions across FMCG, automotive, tools, equipment, and engineering sectors.</p>
+</section>
+
+<section class="capabilities">
+  <h2>Our Capabilities</h2>
+  <ul>
+    <li>24+ Injection, Blow & PET Stretch Molding Machines</li>
+    <li>ISO-Certified with Full QA Lab & Tool Room</li>
+    <li>Rapid 3D Prototyping & Engineering Services</li>
+    <li>Strategic Vendor Network for Global Supply Chain</li>
+    <li>Scalable Production with On-Time Delivery</li>
+  </ul>
+</section>
+
 <section class="industries">
   <h2>Industries We Serve</h2>
   <div class="grid">
@@ -132,6 +265,33 @@
   </div>
 </div>
 
+<section class="client-logos">
+  <h2>Our Clients</h2>
+  <div class="logo-marquee">
+    <div class="logo-track">
+      <a href="https://www.masterchow.in" target="_blank"><div class="logo-container"><img src="masterchow_logo.jpg" alt="MasterChow Logo"></div></a>
+      <a href="https://www.trivenialmirah.com" target="_blank"><div class="logo-container"><img src="triveni.png" alt="Triveni Almirah Logo"></div></a>
+      <a href="https://www.romsons.com" target="_blank"><div class="logo-container"><img src="romsons.png" alt="Romsons Logo"></div></a>
+      <a href="https://www.baidyanath.co.in" target="_blank"><div class="logo-container"><img src="Baidyanath_logo.png" alt="Baidyanath Logo"></div></a>
+      <a href="https://www.patanjaliayurved.net" target="_blank"><div class="logo-container"><img src="patanjalilogo.png" alt="Patanjali Logo"></div></a>
+      <a href="https://www.dabur.com" target="_blank"><div class="logo-container dabur"><img src="dabur.png" alt="Dabur Logo"></div></a>
+      <a href="https://indianrailways.gov.in" target="_blank"><div class="logo-container railways"><img src="indianrailways.png" alt="Indian Railways Logo"></div></a>
+      <a href="https://www.tops.in" target="_blank"><div class="logo-container tops"><img src="topslogo.png" alt="Tops Logo"></div></a>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <h2>Contact Us</h2>
+  <p><strong>Address:</strong> D-20, Sector-7, Noida, UP, India</p>
+  <p><strong>Email:</strong> <a href="mailto:tsmplastics@yahoo.co.in">tsmplastics@yahoo.co.in</a></p>
+  <p><strong>Phone:</strong> S.K. Sharma (+91 99100 88187), Lakshay Sharma (+91 99587 03900)</p>
+</section>
+
+<footer class="footer">
+  <p>© 2025 TSM Plastics. All rights reserved.</p>
+</footer>
+
 <script>
   const industryContent = {
     FMCG: {
@@ -146,7 +306,7 @@
     },
     engineering: {
       title: "Engineering",
-      img: "engineering.png",
+      img: "engineering.jpg",
       desc: "Our industrial plastic parts serve general engineering, electronics, and machinery sectors — offering high tolerance, mechanical strength and custom molding for unique applications."
     },
     tools: {
@@ -170,12 +330,10 @@
     card.addEventListener('click', () => {
       const type = card.dataset.industry;
       const data = industryContent[type];
-
       document.getElementById('modal-title').textContent = data.title;
       document.getElementById('modal-img').src = data.img;
       document.getElementById('modal-img').alt = data.title + " Products";
       document.getElementById('modal-description').textContent = data.desc;
-
       document.getElementById('industry-modal').style.display = 'flex';
     });
   });
