@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +31,10 @@
 
     header .overlay {
       position: absolute;
-      inset: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       background: rgba(0, 0, 0, 0.4);
       display: flex;
       flex-direction: column;
@@ -48,7 +50,9 @@
     }
 
     @media (max-width: 768px) {
-      header .overlay img.logo { max-width: 200px; }
+      header .overlay img.logo {
+        max-width: 200px;
+      }
     }
 
     section {
@@ -116,10 +120,14 @@
       float: right;
       font-size: 28px;
       font-weight: bold;
-      cursor: pointer;
     }
 
-    .close:hover, .close:focus { color: black; }
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
 
     .client-logos {
       max-width: 1100px;
@@ -137,7 +145,10 @@
       padding-bottom: 5px;
     }
 
-    .logo-marquee { overflow: hidden; position: relative; }
+    .logo-marquee {
+      overflow: hidden;
+      position: relative;
+    }
 
     .logo-track {
       display: flex;
@@ -147,7 +158,9 @@
       align-items: center;
     }
 
-    .logo-track a { display: inline-block; }
+    .logo-track a {
+      display: inline-block;
+    }
 
     .logo-container {
       padding: 5px;
@@ -166,7 +179,10 @@
       transition: transform 0.3s ease;
     }
 
-    @keyframes scroll-left { 0% { transform: translateX(0%);} 100% { transform: translateX(-50%);} }
+    @keyframes scroll-left {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
 
     @media (max-width: 768px) {
       .client-logos h2 { font-size: 2rem; }
@@ -200,222 +216,210 @@
     .product-meta p { margin:.35rem 0 0; font-size:.9rem; color:#666; }
 
     /* Product lightbox */
-    #productModal { display:none; position:fixed; inset:0; background:rgba(0,0,0,.7); z-index:10000; overflow:auto; }
+    #productModal { display:none; position:fixed; inset:0; background:rgba(0,0,0,.7); z-index:10000; }
     #productModal .content { background:#fff; max-width:950px; margin:5% auto; border-radius:10px; overflow:hidden; }
     #productModal header { display:flex; justify-content:space-between; align-items:center; padding:12px 16px; border-bottom:1px solid #eee; }
     #productModal header h3 { margin:0; font-size:1.1rem; color:#0a4d8c; }
     #productModal header .close { font-size:28px; line-height:1; cursor:pointer; color:#999; }
     #productModal header .close:hover { color:#111; }
-    #productModal figure { margin:0; padding:0; }
-    /* Prevent oversized preview; allow scroll if needed */
-    #productModal img {
-      max-width: 100%;
-      max-height: 80vh;
-      object-fit: contain;
-      display: block;
-      margin: 0 auto;
-    }
+    #productModal figure { margin:0; }
+    #productModal img { width:100%; height:auto; display:block; }
     #productModal .caption { padding:12px 16px; color:#444; font-size:.95rem; }
   </style>
 </head>
 <body>
-  <header class="video-header">
-    <video autoplay muted loop playsinline>
-      <source src="injection.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <div class="overlay">
-      <img src="logo.jpeg" alt="TSM Plastics Logo" class="logo" />
+<header class="video-header">
+  <video autoplay muted loop playsinline>
+    <source src="injection.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="overlay">
+    <img src="logo.jpeg" alt="TSM Plastics Logo" class="logo" />
+  </div>
+</header>
+
+<section class="about">
+  <h2>About Us</h2>
+  <p>
+    TSM Plastics has been shaping the future of plastic manufacturing for over 30 years.
+    We specialize in high-precision injection molding, blow molding, and PET stretch blow molding—
+    delivering custom solutions to leaders across FMCG, automotive, medical, packaging, and engineering sectors.
+  </p>
+  <p>
+    Our state-of-the-art facility has consistently delivered high-quality, cost-effective,
+    and industry-specific plastic solutions to a global clientele.
+  </p>
+  <p>
+    Whether you’re a growing brand or an established name, we help you scale with
+    reliable, innovative plastic solutions.
+  </p>
+</section>
+
+<section class="industries">
+  <h2>Industries We Serve</h2>
+  <p>Click on a category below to see real product images and details.</p>
+  <div class="grid">
+    <div class="industry-box" onclick="openModal('FMCG', 'FMCG.png', 'Food, cosmetics, skincare, dental & hygiene components')">
+      <h3>FMCG</h3>
+      <p>Food, cosmetics, skincare, dental & hygiene components</p>
     </div>
-  </header>
-
-  <section class="about">
-    <h2>About Us</h2>
-    <p>
-      TSM Plastics has been shaping the future of plastic manufacturing for over 30 years.
-      We specialize in high-precision injection molding, blow molding, and PET stretch blow molding—
-      delivering custom solutions to leaders across FMCG, automotive, medical, packaging, and engineering sectors.
-    </p>
-    <p>
-      Our state-of-the-art facility has consistently delivered high-quality, cost-effective,
-      and industry-specific plastic solutions to a global clientele.
-    </p>
-    <p>
-      Whether you’re a growing brand or an established name, we help you scale with
-      reliable, innovative plastic solutions.
-    </p>
-  </section>
-
-  <section class="industries">
-    <h2>Industries We Serve</h2>
-    <p>Click on a category below to see real product images and details.</p>
-    <div class="grid">
-      <div class="industry-box" onclick="openModal('FMCG', 'FMCG.png', 'Food, cosmetics, skincare, dental & hygiene components')">
-        <h3>FMCG</h3>
-        <p>Food, cosmetics, skincare, dental & hygiene components</p>
-      </div>
-      <div class="industry-box" onclick="openModal('Automotive', 'auto.png', 'Custom lightweight parts for diverse automotive needs')">
-        <h3>Automotive</h3>
-        <p>Custom lightweight parts for diverse automotive needs</p>
-      </div>
-      <div class="industry-box" onclick="openModal('Engineering', 'engineering.jpg', 'High-precision components for industrial engineering')">
-        <h3>Engineering</h3>
-        <p>High-precision components for industrial engineering</p>
-      </div>
-      <div class="industry-box" onclick="openModal('Household Tools & Equipment', 'tools.png', 'Household tools & specialized equipment plastics')">
-        <h3>Tools & Equipment</h3>
-        <p>Household tools & specialized equipment plastics</p>
-      </div>
-      <div class="industry-box" onclick="openModal('Medical', 'medical.png', 'Reliable, clean plastic solutions for healthcare')">
-        <h3>Medical</h3>
-        <p>Reliable, clean plastic solutions for healthcare</p>
-      </div>
-      <div class="industry-box" onclick="openModal('Packaging', 'packaging.png', 'Dry, liquid, bulk containers, caps, lids and more')">
-        <h3>Packaging</h3>
-        <p>Dry, liquid, bulk containers, caps, lids and more</p>
-      </div>
+    <div class="industry-box" onclick="openModal('Automotive', 'auto.png', 'Custom lightweight parts for diverse automotive needs')">
+      <h3>Automotive</h3>
+      <p>Custom lightweight parts for diverse automotive needs</p>
     </div>
-  </section>
-
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <h2 id="modalTitle"></h2>
-      <p id="modalDesc"></p>
-      <img id="modalImg" src="" alt="Industry Image">
+    <div class="industry-box" onclick="openModal('Engineering', 'engineering.jpg', 'High-precision components for industrial engineering')">
+      <h3>Engineering</h3>
+      <p>High-precision components for industrial engineering</p>
+    </div>
+    <div class="industry-box" onclick="openModal('Household Tools & Equipment', 'tools.png', 'Household tools & specialized equipment plastics')">
+      <h3>Tools & Equipment</h3>
+      <p>Household tools & specialized equipment plastics</p>
+    </div>
+    <div class="industry-box" onclick="openModal('Medical', 'medical.png', 'Reliable, clean plastic solutions for healthcare')">
+      <h3>Medical</h3>
+      <p>Reliable, clean plastic solutions for healthcare</p>
+    </div>
+    <div class="industry-box" onclick="openModal('Packaging', 'packaging.png', 'Dry, liquid, bulk containers, caps, lids and more')">
+      <h3>Packaging</h3>
+      <p>Dry, liquid, bulk containers, caps, lids and more</p>
     </div>
   </div>
+</section>
 
-  <section class="client-logos">
-    <h2>Our Clients</h2>
-    <div class="logo-marquee">
-      <div class="logo-track">
-        <a href="https://www.masterchow.in" target="_blank"><div class="logo-container"><img src="masterchow_logo.jpg" alt="MasterChow Logo"></div></a>
-        <a href="https://www.trivenialmirah.com" target="_blank"><div class="logo-container"><img src="triveni.png" alt="Triveni Almirah Logo"></div></a>
-        <a href="https://www.romsons.com" target="_blank"><div class="logo-container"><img src="romsons.png" alt="Romsons Logo"></div></a>
-        <a href="https://www.baidyanath.co.in" target="_blank"><div class="logo-container"><img src="Baidyanath_logo.png" alt="Baidyanath Logo"></div></a>
-        <a href="https://www.patanjaliayurved.net" target="_blank"><div class="logo-container"><img src="patanjalilogo.png" alt="Patanjali Logo"></div></a>
-        <a href="https://www.dabur.com" target="_blank"><div class="logo-container dabur"><img src="dabur.png" alt="Dabur Logo"></div></a>
-        <a href="https://indianrailways.gov.in" target="_blank"><div class="logo-container railways"><img src="indianrailways.png" alt="Indian Railways Logo"></div></a>
-        <a href="https://www.tops.in" target="_blank"><div class="logo-container tops"><img src="topslogo.png" alt="Tops Logo"></div></a>
-      </div>
-    </div>
-  </section>
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2 id="modalTitle"></h2>
+    <p id="modalDesc"></p>
+    <img id="modalImg" src="" alt="Industry Image">
+  </div>
+</div>
 
-  <!-- ======= Products Section ======= -->
-  <section class="products" id="products">
-    <h2>Products</h2>
-    <p>Real shots from our production floor. Click to view larger.</p>
-    <div class="product-grid" id="productGrid"></div>
-  </section>
-
-  <!-- Product Lightbox -->
-  <div id="productModal" aria-hidden="true">
-    <div class="content">
-      <header>
-        <h3 id="pmTitle">Preview</h3>
-        <span class="close" id="pmClose" aria-label="Close">&times;</span>
-      </header>
-      <figure>
-        <img id="pmImg" src="" alt="">
-        <figcaption class="caption" id="pmCaption"></figcaption>
-      </figure>
+<section class="client-logos">
+  <h2>Our Clients</h2>
+  <div class="logo-marquee">
+    <div class="logo-track">
+      <a href="https://www.masterchow.in" target="_blank"><div class="logo-container"><img src="masterchow_logo.jpg" alt="MasterChow Logo"></div></a>
+      <a href="https://www.trivenialmirah.com" target="_blank"><div class="logo-container"><img src="triveni.png" alt="Triveni Almirah Logo"></div></a>
+      <a href="https://www.romsons.com" target="_blank"><div class="logo-container"><img src="romsons.png" alt="Romsons Logo"></div></a>
+      <a href="https://www.baidyanath.co.in" target="_blank"><div class="logo-container"><img src="Baidyanath_logo.png" alt="Baidyanath Logo"></div></a>
+      <a href="https://www.patanjaliayurved.net" target="_blank"><div class="logo-container"><img src="patanjalilogo.png" alt="Patanjali Logo"></div></a>
+      <a href="https://www.dabur.com" target="_blank"><div class="logo-container dabur"><img src="dabur.png" alt="Dabur Logo"></div></a>
+      <a href="https://indianrailways.gov.in" target="_blank"><div class="logo-container railways"><img src="indianrailways.png" alt="Indian Railways Logo"></div></a>
+      <a href="https://www.tops.in" target="_blank"><div class="logo-container tops"><img src="topslogo.png" alt="Tops Logo"></div></a>
     </div>
   </div>
+</section>
 
-  <section class="contact">
-    <h2>Contact Us</h2>
-    <p><strong>Address:</strong> D-20, Sector-7, Noida, UP, India</p>
-    <p><strong>Email:</strong> <a href="mailto:tsmplastics@yahoo.co.in">tsmplastics@yahoo.co.in</a></p>
-    <p><strong>Phone:</strong> S.K. Sharma (+91 99100 88187), Lakshay Sharma (+91 99587 03900)</p>
-  </section>
+<!-- ======= Products Section ======= -->
+<section class="products" id="products">
+  <h2>Products</h2>
+  <p>Real shots from our production floor. Click to view larger.</p>
+  <div class="product-grid" id="productGrid"></div>
+</section>
 
-  <footer class="footer">
-    <p>© 2025 TSM Plastics. All rights reserved.</p>
-  </footer>
+<!-- Product Lightbox -->
+<div id="productModal" aria-hidden="true">
+  <div class="content">
+    <header>
+      <h3 id="pmTitle">Preview</h3>
+      <span class="close" id="pmClose" aria-label="Close">&times;</span>
+    </header>
+    <figure>
+      <img id="pmImg" src="" alt="">
+      <figcaption class="caption" id="pmCaption"></figcaption>
+    </figure>
+  </div>
+</div>
 
-  <script>
-    /* Industries modal */
-    function openModal(title, img, desc) {
-      document.getElementById('modalTitle').innerText = title;
-      document.getElementById('modalImg').src = img;
-      document.getElementById('modalDesc').innerText = desc;
-      document.getElementById('modal').style.display = 'block';
-    }
-    function closeModal() {
-      document.getElementById('modal').style.display = 'none';
-    }
+<section class="contact">
+  <h2>Contact Us</h2>
+  <p><strong>Address:</strong> D-20, Sector-7, Noida, UP, India</p>
+  <p><strong>Email:</strong> <a href="mailto:tsmplastics@yahoo.co.in">tsmplastics@yahoo.co.in</a></p>
+  <p><strong>Phone:</strong> S.K. Sharma (+91 99100 88187), Lakshay Sharma (+91 99587 03900)</p>
+</section>
 
-    /* ---------- PRODUCTS DATA: keep filenames exactly as-is ---------- */
-    const products = [
-      { file: "20250814_1231_Professional Product Shoot_remix_01k2knz17pefsv341gv2wectqx.png", title: "Professional Product Shoot", caption: "Studio-lit product composition for catalog and B2B listings." },
-      { file: "20250814_1243_Professional Product Shoot_remix_01k2kpp3kkejbadjvmvanyzceq.png", title: "Professional Product Shoot", caption: "Side-lit setup highlighting edges and transparency." },
-      { file: "20250814_1257_Clear Plastic Container_remix_01k2kqf5erf168mz6c5yvvb40e.png", title: "Clear Plastic Container", caption: "Food/non-food grade clarity and uniform wall thickness." },
-      { file: "20250814_1304_Red Plastic Container_remix_01k2kqx1x2e5rr551da3hdvzpf.png", title: "Red Plastic Container", caption: "Color-stable masterbatch with consistent finish." },
-      { file: "20250814_1307_Professional Product Shoot_remix_01k2kr2swxetb97gx2jhx1jj49.png", title: "Professional Product Shoot", caption: "Multi-product frame for range presentation." },
-      { file: "20250814_1405_Red Bottle Focus_remix_01k2kvc6t4ebmayaeeefxtgyxq.png", title: "Red Bottle Focus", caption: "Tight shot showing neck finish and cap interface." },
-      { file: "20250814_1411_Clear Plastic Container_remix_01k2kvpqxffkcbmv2yc2c08h09.png", title: "Clear Plastic Container", caption: "Transparency and surface quality under hard light." },
-      { file: "20250814_1414_Professional Bottle Shoot_remix_01k2kvws60f4dsx1egftmze9jw.png", title: "Professional Bottle Shoot", caption: "Uniform labeling surface and body contours." },
-      { file: "20250814_1421_Green Bottle Showcase_remix_01k2kw96pgf4nr69kmt23tjpzy.png", title: "Green Bottle Showcase", caption: "Tinted resin sample with controlled hue." },
-      { file: "20250825_1541_Clear Plastic Container_remix_01k3gb8p2tf5vapq816ne5c1xq.png", title: "Clear Plastic Container", caption: "Edge clarity and base flatness check." },
-      { file: "20250825_1541_Plastic Bottle Showcase_remix_01k3gb92apfngbjykz37qmsq99.png", title: "Plastic Bottle Showcase", caption: "Shoulder radius and neck details." },
-      { file: "20250825_1544_Plastic Container Showcase_remix_01k3gbd42ffpbbbw7anmxdc9ec.png", title: "Plastic Container Showcase", caption: "Rigid container for dry goods." },
-      { file: "20250825_1547_Black Plastic Component_remix_01k3gbje5net69db7jbtdcv4qm.png", title: "Black Plastic Component", caption: "Automotive/engineering grade part, matte finish." },
-      { file: "20250825_1550_Plastic Container Showcase_remix_01k3gbr5maeteb116dg079pv3w.png", title: "Plastic Container Showcase", caption: "Uniform shot weight and parting-line quality." },
-      { file: "20250825_1555_White Plastic Container_remix_01k3gc2f6xegwb4sq2rcqx9r0x.png", title: "White Plastic Container", caption: "Opaque resin sample with smooth finish." },
-      { file: "20250825_1557_Transparent Plastic Container_remix_01k3gc5e28efe83gwq7ft2gta0.png", title: "Transparent Plastic Container", caption: "Clear PET style container for liquids." },
-      { file: "20250825_1604_Green Tray Display_remix_01k3gcjme7fsvsxmvy5wmtb709.png", title: "Green Tray Display", caption: "Shallow tray, uniform ribs, consistent color." },
-      { file: "20250825_1604_Sleek Product Display_remix_01k3gchxahfnxvg7fpr02hs99j.png", title: "Sleek Product Display", caption: "Shelf-ready aesthetic presentation." },
-      { file: "20250825_1606_Professional Studio Shoot_remix_01k3gcpwxffhyv6jx3wvd4esb8.png", title: "Professional Studio Shoot", caption: "Hero angle for catalog header." },
-      { file: "20250825_1607_Red Plastic Container_remix_01k3gcqvs7eqnv6tdny4ehpt9s.png", title: "Red Plastic Container", caption: "Color variant for SKU differentiation." }
-    ];
+<footer class="footer">
+  <p>© 2025 TSM Plastics. All rights reserved.</p>
+</footer>
 
-    /* ---------- Build product grid ---------- */
-    const grid = document.getElementById('productGrid');
-    if (grid) {
-      grid.innerHTML = products.map((p, i) => `
-        <article class="product-card" data-idx="${i}" onclick="openProduct(${i})">
-          <img loading="lazy" src="${p.file}" alt="${p.title}">
-          <div class="product-meta">
-            <h4>${p.title}</h4>
-            <p>${p.caption}</p>
-          </div>
-        </article>
-      `).join('');
-    }
+<script>
+  function openModal(title, img, desc) {
+    document.getElementById('modalTitle').innerText = title;
+    document.getElementById('modalImg').src = img;
+    document.getElementById('modalDesc').innerText = desc;
+    document.getElementById('modal').style.display = 'block';
+  }
+  function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+  }
 
-    /* ---------- Lightbox behavior ---------- */
-    const pm = {
-      root: document.getElementById('productModal'),
-      img: document.getElementById('pmImg'),
-      title: document.getElementById('pmTitle'),
-      caption: document.getElementById('pmCaption'),
-      close: document.getElementById('pmClose')
-    };
+  /* ---------- PRODUCTS DATA: keep filenames exactly as-is ---------- */
+  const products = [
+    { file: "20250814_1231_Professional Product Shoot_remix_01k2knz17pefsv341gv2wectqx.png", title: "Professional Product Shoot", caption: "Studio-lit product composition for catalog and B2B listings." },
+    { file: "20250814_1243_Professional Product Shoot_remix_01k2kpp3kkejbadjvmvanyzceq.png", title: "Professional Product Shoot", caption: "Side-lit setup highlighting edges and transparency." },
+    { file: "20250814_1257_Clear Plastic Container_remix_01k2kqf5erf168mz6c5yvvb40e.png", title: "Clear Plastic Container", caption: "Food/non-food grade clarity and uniform wall thickness." },
+    { file: "20250814_1304_Red Plastic Container_remix_01k2kqx1x2e5rr551da3hdvzpf.png", title: "Red Plastic Container", caption: "Color-stable masterbatch with consistent finish." },
+    { file: "20250814_1307_Professional Product Shoot_remix_01k2kr2swxetb97gx2jhx1jj49.png", title: "Professional Product Shoot", caption: "Multi-product frame for range presentation." },
+    { file: "20250814_1405_Red Bottle Focus_remix_01k2kvc6t4ebmayaeeefxtgyxq.png", title: "Red Bottle Focus", caption: "Tight shot showing neck finish and cap interface." },
+    { file: "20250814_1411_Clear Plastic Container_remix_01k2kvpqxffkcbmv2yc2c08h09.png", title: "Clear Plastic Container", caption: "Transparency and surface quality under hard light." },
+    { file: "20250814_1414_Professional Bottle Shoot_remix_01k2kvws60f4dsx1egftmze9jw.png", title: "Professional Bottle Shoot", caption: "Uniform labeling surface and body contours." },
+    { file: "20250814_1421_Green Bottle Showcase_remix_01k2kw96pgf4nr69kmt23tjpzy.png", title: "Green Bottle Showcase", caption: "Tinted resin sample with controlled hue." },
+    { file: "20250825_1541_Clear Plastic Container_remix_01k3gb8p2tf5vapq816ne5c1xq.png", title: "Clear Plastic Container", caption: "Edge clarity and base flatness check." },
+    { file: "20250825_1541_Plastic Bottle Showcase_remix_01k3gb92apfngbjykz37qmsq99.png", title: "Plastic Bottle Showcase", caption: "Shoulder radius and neck details." },
+    { file: "20250825_1544_Plastic Container Showcase_remix_01k3gbd42ffpbbbw7anmxdc9ec.png", title: "Plastic Container Showcase", caption: "Rigid container for dry goods." },
+    { file: "20250825_1547_Black Plastic Component_remix_01k3gbje5net69db7jbtdcv4qm.png", title: "Black Plastic Component", caption: "Automotive/engineering grade part, matte finish." },
+    { file: "20250825_1550_Plastic Container Showcase_remix_01k3gbr5maeteb116dg079pv3w.png", title: "Plastic Container Showcase", caption: "Uniform shot weight and parting-line quality." },
+    { file: "20250825_1555_White Plastic Container_remix_01k3gc2f6xegwb4sq2rcqx9r0x.png", title: "White Plastic Container", caption: "Opaque resin sample with smooth finish." },
+    { file: "20250825_1557_Transparent Plastic Container_remix_01k3gc5e28efe83gwq7ft2gta0.png", title: "Transparent Plastic Container", caption: "Clear PET style container for liquids." },
+    { file: "20250825_1604_Green Tray Display_remix_01k3gcjme7fsvsxmvy5wmtb709.png", title: "Green Tray Display", caption: "Shallow tray, uniform ribs, consistent color." },
+    { file: "20250825_1604_Sleek Product Display_remix_01k3gchxahfnxvg7fpr02hs99j.png", title: "Sleek Product Display", caption: "Shelf-ready aesthetic presentation." },
+    { file: "20250825_1606_Professional Studio Shoot_remix_01k3gcpwxffhyv6jx3wvd4esb8.png", title: "Professional Studio Shoot", caption: "Hero angle for catalog header." },
+    { file: "20250825_1607_Red Plastic Container_remix_01k3gcqvs7eqnv6tdny4ehpt9s.png", title: "Red Plastic Container", caption: "Color variant for SKU differentiation." }
+  ];
 
-    function openProduct(idx) {
-      const p = products[idx];
-      pm.img.src = p.file;
-      pm.img.alt = p.title;
-      pm.title.textContent = p.title;
-      pm.caption.textContent = p.caption; // filename removed
-      pm.root.style.display = 'block';
-      pm.root.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-    window.openProduct = openProduct;
+  /* ---------- Build product grid ---------- */
+  const grid = document.getElementById('productGrid');
+  if (grid) {
+    grid.innerHTML = products.map((p, i) => `
+      <article class="product-card" data-idx="${i}" onclick="openProduct(${i})">
+        <img loading="lazy" src="${p.file}" alt="${p.title}">
+        <div class="product-meta">
+          <h4>${p.title}</h4>
+          <p>${p.caption}</p>
+        </div>
+      </article>
+    `).join('');
+  }
 
-    function closeProduct() {
-      pm.root.style.display = 'none';
-      pm.root.setAttribute('aria-hidden', 'true');
-      pm.img.src = '';
-      document.body.style.overflow = '';
-    }
-    pm.close.addEventListener('click', closeProduct);
-    pm.root.addEventListener('click', e => { if (e.target === pm.root) closeProduct(); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape' && pm.root.style.display === 'block') closeProduct(); });
-  </script>
+  /* ---------- Lightbox behavior ---------- */
+  const pm = {
+    root: document.getElementById('productModal'),
+    img: document.getElementById('pmImg'),
+    title: document.getElementById('pmTitle'),
+    caption: document.getElementById('pmCaption'),
+    close: document.getElementById('pmClose')
+  };
+
+  function openProduct(idx) {
+    const p = products[idx];
+    pm.img.src = p.file;
+    pm.img.alt = p.title;
+    pm.title.textContent = p.title;
+    pm.caption.textContent = p.caption + " | File: " + p.file;
+    pm.root.style.display = 'block';
+    pm.root.setAttribute('aria-hidden', 'false');
+  }
+  window.openProduct = openProduct;
+
+  function closeProduct() {
+    pm.root.style.display = 'none';
+    pm.root.setAttribute('aria-hidden', 'true');
+    pm.img.src = '';
+  }
+  pm.close.addEventListener('click', closeProduct);
+  pm.root.addEventListener('click', e => { if (e.target === pm.root) closeProduct(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && pm.root.style.display === 'block') closeProduct(); });
+</script>
 </body>
 </html>
-```
-
