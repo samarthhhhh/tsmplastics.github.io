@@ -7,20 +7,23 @@
   <style>
     :root{
       --brand:#0a4d8c; --ink:#222; --muted:#666; --bg:#f7f7f7; --radius:12px; --maxw:1100px;
-      --shadow:0 2px 8px rgba(0,0,0,.06);
-      --thumbBg:#fff;
+      --shadow:0 2px 8px rgba(0,0,0,.06); --thumbBg:#fff;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg)}
+    html,body{margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg);overflow-x:hidden}
     img{display:block;max-width:100%;height:auto}
 
     /* NAV */
     nav.site-nav{background:var(--brand);color:#fff;position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,.08)}
-    .nav-inner{max-width:var(--maxw);margin:auto;display:flex;gap:16px;align-items:center;padding:.6rem 1rem}
-    .nav-inner a{color:#fff;text-decoration:none;padding:.35rem .6rem;border-radius:8px;white-space:nowrap}
+    .nav-inner{max-width:var(--maxw);margin:auto;display:flex;gap:12px;align-items:center;padding:.6rem 1rem;flex-wrap:wrap}
+    .nav-inner a{color:#fff;text-decoration:none;padding:.35rem .6rem;border-radius:8px}
     .nav-inner a:hover{background:rgba(255,255,255,.12)}
     .nav-inner .nav-cta{margin-left:auto;background:#fff;color:var(--brand);padding:.45rem .8rem;border-radius:10px}
     .nav-inner .nav-cta:hover{opacity:.9}
+    @media (max-width:560px){
+      .nav-inner{gap:8px}
+      .nav-inner .nav-cta{order:99;width:100%;text-align:center}
+    }
 
     /* MAIN */
     main{max-width:var(--maxw);margin:auto;padding:2rem 1rem}
@@ -28,39 +31,38 @@
     .product-section{margin-bottom:3rem}
     .product-section h2{border-bottom:2px solid var(--brand);display:inline-block;padding-bottom:4px;margin-bottom:1rem}
 
-    /* GRID */
+    /* GRID (make sure nothing forces overflow) */
     ul.product-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem}
-    ul.product-list li{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;transition:transform .2s ease}
+    ul.product-list li{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;transition:transform .2s ease;min-width:0}
     ul.product-list li:focus-within, ul.product-list li:hover{transform:translateY(-2px)}
 
-    /* THUMBNAIL WINDOW (no cropping) */
+    /* THUMBNAILS: no cropping, stable window */
     .thumb-wrap{
       background:var(--thumbBg);
-      padding:10px;                 /* space around contained image */
-      aspect-ratio: 4 / 3;          /* stable window shape */
-      display:flex; align-items:center; justify-content:center;
+      padding:10px;
+      aspect-ratio: 4 / 3;
+      display:flex;align-items:center;justify-content:center;
+      max-width:100%;
     }
-    @media (max-width:560px){
-      .thumb-wrap{ aspect-ratio: 1 / 1; }  /* squares feel better on tiny screens */
-    }
-    .thumb{
-      width:100%;
-      height:100%;
-      object-fit:contain;           /* the fix: show whole product */
-    }
+    @media (max-width:560px){ .thumb-wrap{aspect-ratio:1/1} }
+    .thumb{width:100%;height:100%;object-fit:contain}
 
     /* CAPTION */
     ul.product-list p{margin:0;padding:.8rem .9rem;font-size:.95rem;color:var(--ink);line-height:1.4;border-top:1px solid #f1f1f1}
 
-    /* LIGHTBOX */
+    /* LIGHTBOX (ensure no horizontal overflow on small screens) */
     .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;align-items:center;justify-content:center;z-index:9999;padding:20px}
     .lightbox[open]{display:flex}
     .lightbox-inner{max-width:min(1000px,95vw);max-height:90vh;background:#000;border-radius:10px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.3)}
-    .lightbox-figure{margin:0;display:flex;flex-direction:column}
+    .lightbox-figure{margin:0;display:flex;flex-direction:column;max-width:100%}
     .lightbox-img{max-width:100%;max-height:80vh;object-fit:contain;background:#000}
-    .lightbox-caption{color:#fff;font-size:.95rem;padding:.6rem .8rem;background:rgba(0,0,0,.6)}
+    .lightbox-caption{color:#fff;font-size:.95rem;padding:.6rem .8rem;background:rgba(0,0,0,.6);word-break:break-word}
     .lightbox-close{position:absolute;top:14px;right:16px;background:rgba(255,255,255,.9);border:0;border-radius:999px;width:36px;height:36px;cursor:pointer;font-size:20px;line-height:36px;text-align:center}
     .lightbox-close:hover{background:#fff}
+    @media (max-width:480px){
+      .lightbox{padding:10px}
+      .lightbox-caption{font-size:.9rem}
+    }
 
     footer.footer{background:var(--brand);color:#fff;text-align:center;padding:1.2rem;margin-top:2rem}
   </style>
@@ -305,7 +307,7 @@
   </dialog>
 
   <script>
-    // Simple lightbox: opens full image on click
+    // Lightbox: open the exact image you clicked (no guessing)
     (function(){
       const lb = document.getElementById('lightbox');
       const lbImg = document.getElementById('lbImg');
@@ -328,7 +330,8 @@
       document.querySelectorAll('a.prod').forEach(a=>{
         a.addEventListener('click', e=>{
           e.preventDefault();
-          open(a.getAttribute('href'), a.getAttribute('data-caption'), a.querySelector('img')?.alt);
+          const img = a.querySelector('img');
+          open(a.getAttribute('href') || img?.src, a.getAttribute('data-caption'), img?.alt);
         });
         a.addEventListener('keydown', e=>{
           if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); a.click(); }
@@ -342,3 +345,4 @@
   </script>
 </body>
 </html>
+
