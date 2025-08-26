@@ -1,30 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Our Products | TSM Plastics</title>
   <style>
     :root{
-      --brand:#0a4d8c; --ink:#333; --muted:#666; --bg:#f7f7f7; --radius:10px; --maxw:1100px;
+      --brand:#0a4d8c; --ink:#222; --muted:#666; --bg:#f7f7f7; --radius:12px; --maxw:1100px;
+      --shadow:0 2px 8px rgba(0,0,0,.06);
+      --thumbBg:#fff;
     }
     *{box-sizing:border-box}
-    body{margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg);}
-    nav.site-nav{background:var(--brand);color:#fff;position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,.08);}
-    .nav-inner{max-width:var(--maxw);margin:auto;display:flex;gap:20px;align-items:center;padding:.6rem 1rem;}
-    .nav-inner a{color:#fff;text-decoration:none;padding:.35rem .6rem;border-radius:8px;}
-    .nav-inner a:hover{background:rgba(255,255,255,.12);}
-    .nav-inner .nav-cta{margin-left:auto;background:#fff;color:var(--brand);padding:.4rem .75rem;border-radius:10px;text-decoration:none;}
-    .nav-inner .nav-cta:hover{opacity:.9;}
-    main{max-width:var(--maxw);margin:auto;padding:2rem 1rem;}
-    h1,h2{color:var(--brand);margin-top:0;}
-    .product-section{margin-bottom:3rem;}
-    .product-section h2{border-bottom:2px solid var(--brand);display:inline-block;padding-bottom:4px;margin-bottom:1rem;}
-    ul.product-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.2rem;}
-    ul.product-list li{background:#fff;border-radius:var(--radius);box-shadow:0 2px 6px rgba(0,0,0,0.05);overflow:hidden;}
-    ul.product-list img{width:100%;height:180px;object-fit:cover;display:block;}
-    ul.product-list p{margin:0;padding:.75rem;font-size:.9rem;color:var(--ink);}
-    footer.footer{background:var(--brand);color:#fff;text-align:center;padding:1.2rem;margin-top:2rem;}
+    html,body{margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg)}
+    img{display:block;max-width:100%;height:auto}
+
+    /* NAV */
+    nav.site-nav{background:var(--brand);color:#fff;position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+    .nav-inner{max-width:var(--maxw);margin:auto;display:flex;gap:16px;align-items:center;padding:.6rem 1rem}
+    .nav-inner a{color:#fff;text-decoration:none;padding:.35rem .6rem;border-radius:8px;white-space:nowrap}
+    .nav-inner a:hover{background:rgba(255,255,255,.12)}
+    .nav-inner .nav-cta{margin-left:auto;background:#fff;color:var(--brand);padding:.45rem .8rem;border-radius:10px}
+    .nav-inner .nav-cta:hover{opacity:.9}
+
+    /* MAIN */
+    main{max-width:var(--maxw);margin:auto;padding:2rem 1rem}
+    h1,h2{color:var(--brand);margin-top:0}
+    .product-section{margin-bottom:3rem}
+    .product-section h2{border-bottom:2px solid var(--brand);display:inline-block;padding-bottom:4px;margin-bottom:1rem}
+
+    /* GRID */
+    ul.product-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem}
+    ul.product-list li{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;transition:transform .2s ease}
+    ul.product-list li:focus-within, ul.product-list li:hover{transform:translateY(-2px)}
+
+    /* THUMBNAIL WINDOW (no cropping) */
+    .thumb-wrap{
+      background:var(--thumbBg);
+      padding:10px;                 /* space around contained image */
+      aspect-ratio: 4 / 3;          /* stable window shape */
+      display:flex; align-items:center; justify-content:center;
+    }
+    @media (max-width:560px){
+      .thumb-wrap{ aspect-ratio: 1 / 1; }  /* squares feel better on tiny screens */
+    }
+    .thumb{
+      width:100%;
+      height:100%;
+      object-fit:contain;           /* the fix: show whole product */
+    }
+
+    /* CAPTION */
+    ul.product-list p{margin:0;padding:.8rem .9rem;font-size:.95rem;color:var(--ink);line-height:1.4;border-top:1px solid #f1f1f1}
+
+    /* LIGHTBOX */
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;align-items:center;justify-content:center;z-index:9999;padding:20px}
+    .lightbox[open]{display:flex}
+    .lightbox-inner{max-width:min(1000px,95vw);max-height:90vh;background:#000;border-radius:10px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.3)}
+    .lightbox-figure{margin:0;display:flex;flex-direction:column}
+    .lightbox-img{max-width:100%;max-height:80vh;object-fit:contain;background:#000}
+    .lightbox-caption{color:#fff;font-size:.95rem;padding:.6rem .8rem;background:rgba(0,0,0,.6)}
+    .lightbox-close{position:absolute;top:14px;right:16px;background:rgba(255,255,255,.9);border:0;border-radius:999px;width:36px;height:36px;cursor:pointer;font-size:20px;line-height:36px;text-align:center}
+    .lightbox-close:hover{background:#fff}
+
+    footer.footer{background:var(--brand);color:#fff;text-align:center;padding:1.2rem;margin-top:2rem}
   </style>
 </head>
 <body>
@@ -38,154 +76,269 @@
       <a href="/contact.html" class="nav-cta">Get a Quote</a>
     </div>
   </nav>
+
   <main>
     <h1>Our Products</h1>
-    <p>Explore our range of blow moulding, PET stretch blow moulding and injection moulding products. Click an image to view a larger version.</p>
+    <p>Explore our range of blow moulding, PET stretch blow moulding and injection moulding products. Tap any image to view it larger.</p>
 
+    <!-- BLOW MOULDING -->
     <section class="product-section">
       <h2>Blow Moulding</h2>
       <ul class="product-list">
         <li>
-          <img src="20250814_1231_Professional Product Shoot_remix_01k2knz17pefsv341gv2wectqx.png" alt="Yellow handled jerrycan">
+          <a href="20250814_1231_Professional Product Shoot_remix_01k2knz17pefsv341gv2wectqx.png" class="prod" data-caption="Yellow handled jerrycan">
+            <div class="thumb-wrap"><img loading="lazy" class="thumb" src="20250814_1231_Professional Product Shoot_remix_01k2knz17pefsv341gv2wectqx.png" alt="Yellow handled jerrycan"></div>
+          </a>
           <p>Yellow handled jerrycan</p>
         </li>
         <li>
-          <img src="20250814_1304_Red Plastic Container_remix_01k2kqx1x2e5rr551da3hdvzpf.png" alt="Transparent jerrycan">
+          <a href="20250814_1304_Red Plastic Container_remix_01k2kqx1x2e5rr551da3hdvzpf.png" class="prod" data-caption="Transparent jerrycan">
+            <div class="thumb-wrap"><img loading="lazy" class="thumb" src="20250814_1304_Red Plastic Container_remix_01k2kqx1x2e5rr551da3hdvzpf.png" alt="Transparent jerrycan"></div>
+          </a>
           <p>Transparent jerrycan</p>
         </li>
         <li>
-          <img src="20250814_1307_Professional Product Shoot_remix_01k2kr2swxetb97gx2jhx1jj49.png" alt="Red jerrycan">
+          <a href="20250814_1307_Professional Product Shoot_remix_01k2kr2swxetb97gx2jhx1jj49.png" class="prod" data-caption="Red jerrycan">
+            <div class="thumb-wrap"><img loading="lazy" class="thumb" src="20250814_1307_Professional Product Shoot_remix_01k2kr2swxetb97gx2jhx1jj49.png" alt="Red jerrycan"></div>
+          </a>
           <p>Red jerrycan</p>
         </li>
         <li>
-          <img src="20250814_1405_Red Bottle Focus_remix_01k2kvc6t4ebmayaeeefxtgyxq.png" alt="Red cylindrical bottle">
+          <a href="20250814_1405_Red Bottle Focus_remix_01k2kvc6t4ebmayaeeefxtgyxq.png" class="prod" data-caption="Red cylindrical bottle">
+            <div class="thumb-wrap"><img loading="lazy" class="thumb" src="20250814_1405_Red Bottle Focus_remix_01k2kvc6t4ebmayaeeefxtgyxq.png" alt="Red cylindrical bottle"></div>
+          </a>
           <p>Red cylindrical bottle</p>
         </li>
         <li>
-          <img src="20250814_1414_Professional Bottle Shoot_remix_01k2kvws60f4dsx1egftmze9jw.png" alt="White milk-style bottle">
+          <a href="20250814_1414_Professional Bottle Shoot_remix_01k2kvws60f4dsx1egftmze9jw.png" class="prod" data-caption="White milk-style bottle">
+            <div class="thumb-wrap"><img loading="lazy" class="thumb" src="20250814_1414_Professional Bottle Shoot_remix_01k2kvws60f4dsx1egftmze9jw.png" alt="White milk-style bottle"></div>
+          </a>
           <p>White milk-style bottle</p>
         </li>
         <li>
-          <img src="20250814_1421_Green Bottle Showcase_remix_01k2kw96pgf4nr69kmt23tjpzy.png" alt="Green rectangular bottle">
+          <a href="20250814_1421_Green Bottle Showcase_remix_01k2kw96pgf4nr69kmt23tjpzy.png" class="prod" data-caption="Green rectangular bottle">
+            <div class="thumb-wrap"><img loading="lazy" class="thumb" src="20250814_1421_Green Bottle Showcase_remix_01k2kw96pgf4nr69kmt23tjpzy.png" alt="Green rectangular bottle"></div>
+          </a>
           <p>Green rectangular bottle</p>
         </li>
         <li>
-          <img src="20250825_1541_Clear Plastic Container_remix_01k3gb8p2tf5vapq816ne5c1xq.png" alt="Clear gallon jug">
+          <a href="20250825_1541_Clear Plastic Container_remix_01k3gb8p2tf5vapq816ne5c1xq.png" class="prod" data-caption="Clear gallon jug">
+            <div class="thumb-wrap"><img loading="lazy" class="thumb" src="20250825_1541_Clear Plastic Container_remix_01k3gb8p2tf5vapq816ne5c1xq.png" alt="Clear gallon jug"></div>
+          </a>
           <p>Clear gallon jug</p>
         </li>
         <li>
-          <img src="20250825_1544_Plastic Container Showcase_remix_01k3gbd42ffpbbbw7anmxdc9ec.png" alt="Purple short jar">
+          <a href="20250825_1544_Plastic Container Showcase_remix_01k3gbd42ffpbbbw7anmxdc9ec.png" class="prod" data-caption="Purple short jar">
+            <div class="thumb-wrap"><img loading="lazy" class="thumb" src="20250825_1544_Plastic Container Showcase_remix_01k3gbd42ffpbbbw7anmxdc9ec.png" alt="Purple short jar"></div>
+          </a>
           <p>Purple short jar</p>
         </li>
       </ul>
     </section>
 
+    <!-- PET STRETCH BLOW -->
     <section class="product-section">
       <h2>PET Stretch Blow Moulding</h2>
       <ul class="product-list">
         <li>
-          <img src="20250814_1243_Professional Product Shoot_remix_01k2kpp3kkejbadjvmvanyzceq.png" alt="Clear PET jar with black lid and green label">
+          <a href="20250814_1243_Professional Product Shoot_remix_01k2kpp3kkejbadjvmvanyzceq.png" class="prod" data-caption="Clear PET jar with black lid">
+            <div class="thumb-wrap"><img loading="lazy" class="thumb" src="20250814_1243_Professional Product Shoot_remix_01k2kpp3kkejbadjvmvanyzceq.png" alt="Clear PET jar with black lid and green label"></div>
+          </a>
           <p>Clear PET jar with black lid</p>
         </li>
         <li>
-          <img src="20250814_1257_Clear Plastic Container_remix_01k2kqf5erf168mz6c5yvvb40e.png" alt="Large clear PET jar with cream lid">
+          <a href="20250814_1257_Clear Plastic Container_remix_01k2kqf5erf168mz6c5yvvb40e.png" class="prod" data-caption="Large clear PET jar with cream lid">
+            <div class="thumb-wrap"><img loading="lazy" class="thumb" src="20250814_1257_Clear Plastic Container_remix_01k2kqf5erf168mz6c5yvvb40e.png" alt="Large clear PET jar with cream lid"></div>
+          </a>
           <p>Large clear PET jar with cream lid</p>
         </li>
         <li>
-          <img src="20250814_1411_Clear Plastic Container_remix_01k2kvpqxffkcbmv2yc2c08h09.png" alt="Small clear PET bottle with green cap">
+          <a href="20250814_1411_Clear Plastic Container_remix_01k2kvpqxffkcbmv2yc2c08h09.png" class="prod" data-caption="Small clear PET bottle with green cap">
+            <div class="thumb-wrap"><img loading="lazy" class="thumb" src="20250814_1411_Clear Plastic Container_remix_01k2kvpqxffkcbmv2yc2c08h09.png" alt="Small clear PET bottle with green cap"></div>
+          </a>
           <p>Small clear PET bottle with green cap</p>
         </li>
         <li>
-          <img src="20250825_1541_Plastic Bottle Showcase_remix_01k3gb92apfngbjykz37qmsq99.png" alt="Green PET water bottle with swirl design">
+          <a href="20250825_1541_Plastic Bottle Showcase_remix_01k3gb92apfngbjykz37qmsq99.png" class="prod" data-caption="Green PET water bottle with swirl design">
+            <div class="thumb-wrap"><img loading="lazy" class="thumb" src="20250825_1541_Plastic Bottle Showcase_remix_01k3gb92apfngbjykz37qmsq99.png" alt="Green PET water bottle with swirl design"></div>
+          </a>
           <p>Green PET water bottle with swirl design</p>
         </li>
         <li>
-          <img src="20250825_1557_Transparent Plastic Container_remix_01k3gc5e28efe83gwq7ft2gta0.png" alt="Flat flask-style clear PET bottle with yellow-green cap">
+          <a href="20250825_1557_Transparent Plastic Container_remix_01k3gc5e28efe83gwq7ft2gta0.png" class="prod" data-caption="Flat flask-style clear PET bottle">
+            <div class="thumb-wrap"><img loading="lazy" class="thumb" src="20250825_1557_Transparent Plastic Container_remix_01k3gc5e28efe83gwq7ft2gta0.png" alt="Flat flask-style clear PET bottle with yellow-green cap"></div>
+          </a>
           <p>Flat flask-style clear PET bottle</p>
         </li>
       </ul>
     </section>
 
+    <!-- INJECTION MOULDING -->
     <section class="product-section">
       <h2>Injection Moulding</h2>
       <ul class="product-list">
         <li>
-          <img src="20250825_1547_Black Plastic Component_remix_01k3gbje5net69db7jbtdcv4qm.png" alt="Black ribbed industrial boot part">
+          <a href="20250825_1547_Black Plastic Component_remix_01k3gbje5net69db7jbtdcv4qm.png" class="prod" data-caption="Black ribbed industrial boot part">
+            <div class="thumb-wrap"><img loading="lazy" class="thumb" src="20250825_1547_Black Plastic Component_remix_01k3gbje5net69db7jbtdcv4qm.png" alt="Black ribbed industrial boot part"></div>
+          </a>
           <p>Black ribbed industrial boot part</p>
         </li>
         <li>
-          <img src="20250825_1550_Plastic Container Showcase_remix_01k3gbr5maeteb116dg079pv3w.png" alt="Chrome-look threaded component">
+          <a href="20250825_1550_Plastic Container Showcase_remix_01k3gbr5maeteb116dg079pv3w.png" class="prod" data-caption="Chrome-look threaded component">
+            <div class="thumb-wrap"><img loading="lazy" class="thumb" src="20250825_1550_Plastic Container Showcase_remix_01k3gbr5maeteb116dg079pv3w.png" alt="Chrome-look threaded component"></div>
+          </a>
           <p>Chrome-look threaded component</p>
         </li>
         <li>
-          <img src="20250825_1555_White Plastic Container_remix_01k3gc2f6xegwb4sq2rcqx9r0x.png" alt="White plastic industrial connector piece">
+          <a href="20250825_1555_White Plastic Container_remix_01k3gc2f6xegwb4sq2rcqx9r0x.png" class="prod" data-caption="White industrial connector piece">
+            <div class="thumb-wrap"><img loading="lazy" class="thumb" src="20250825_1555_White Plastic Container_remix_01k3gc2f6xegwb4sq2rcqx9r0x.png" alt="White plastic industrial connector piece"></div>
+          </a>
           <p>White industrial connector piece</p>
         </li>
         <li>
-          <img src="20250825_1604_Green Tray Display_remix_01k3gcjme7fsvsxmvy5wmtb709.png" alt="Green serving tray">
+          <a href="20250825_1604_Green Tray Display_remix_01k3gcjme7fsvsxmvy5wmtb709.png" class="prod" data-caption="Green serving tray">
+            <div class="thumb-wrap"><img loading="lazy" class="thumb" src="20250825_1604_Green Tray Display_remix_01k3gcjme7fsvsxmvy5wmtb709.png" alt="Green serving tray"></div>
+          </a>
           <p>Green serving tray</p>
         </li>
         <li>
-          <img src="20250825_1604_Sleek Product Display_remix_01k3gchxahfnxvg7fpr02hs99j.png" alt="Orange frame-like part with pin">
+          <a href="20250825_1604_Sleek Product Display_remix_01k3gchxahfnxvg7fpr02hs99j.png" class="prod" data-caption="Orange frame-like part with pin">
+            <div class="thumb-wrap"><img loading="lazy" class="thumb" src="20250825_1604_Sleek Product Display_remix_01k3gchxahfnxvg7fpr02hs99j.png" alt="Orange frame-like part with pin"></div>
+          </a>
           <p>Orange frame-like part with pin</p>
         </li>
         <li>
-          <img src="20250825_1606_Professional Studio Shoot_remix_01k3gcpwxffhyv6jx3wvd4esb8.png" alt="White square block part">
+          <a href="20250825_1606_Professional Studio Shoot_remix_01k3gcpwxffhyv6jx3wvd4esb8.png" class="prod" data-caption="White square block part">
+            <div class="thumb-wrap"><img loading="lazy" class="thumb" src="20250825_1606_Professional Studio Shoot_remix_01k3gcpwxffhyv6jx3wvd4esb8.png" alt="White square block part"></div>
+          </a>
           <p>White square block part</p>
         </li>
         <li>
-          <img src="20250825_1607_Red Plastic Container_remix_01k3gcqvs7eqnv6tdny4ehpt9s.png" alt="Red rectangular plate">
+          <a href="20250825_1607_Red Plastic Container_remix_01k3gcqvs7eqnv6tdny4ehpt9s.png" class="prod" data-caption="Red rectangular plate">
+            <div class="thumb-wrap"><img loading="lazy" class="thumb" src="20250825_1607_Red Plastic Container_remix_01k3gcqvs7eqnv6tdny4ehpt9s.png" alt="Red rectangular plate"></div>
+          </a>
           <p>Red rectangular plate</p>
         </li>
         <li>
-          <img src="20250825_1744_Professional Product Shoot_remix_01k3gj96mzfdzt48svp6w366nj.png" alt="Purple household tub">
+          <a href="20250825_1744_Professional Product Shoot_remix_01k3gj96mzfdzt48svp6w366nj.png" class="prod" data-caption="Purple household tub">
+            <div class="thumb-wrap"><img loading="lazy" class="thumb" src="20250825_1744_Professional Product Shoot_remix_01k3gj96mzfdzt48svp6w366nj.png" alt="Purple household tub"></div>
+          </a>
           <p>Purple household tub</p>
         </li>
         <li>
-          <img src="20250825_1745_Red Cap Close-Up_remix_01k3gjbq73ew2a62t29zyygg3g.png" alt="Red flip-top cap">
+          <a href="20250825_1745_Red Cap Close-Up_remix_01k3gjbq73ew2a62t29zyygg3g.png" class="prod" data-caption="Red flip-top cap">
+            <div class="thumb-wrap"><img loading="lazy" class="thumb" src="20250825_1745_Red Cap Close-Up_remix_01k3gjbq73ew2a62t29zyygg3g.png" alt="Red flip-top cap"></div>
+          </a>
           <p>Red flip-top cap</p>
         </li>
         <li>
-          <img src="20250825_1748_Professional Product Shoot_remix_01k3gjh5dve0qsw190mj0n10q0.png" alt="White perforated cap">
+          <a href="20250825_1748_Professional Product Shoot_remix_01k3gjh5dve0qsw190mj0n10q0.png" class="prod" data-caption="White perforated cap">
+            <div class="thumb-wrap"><img loading="lazy" class="thumb" src="20250825_1748_Professional Product Shoot_remix_01k3gjh5dve0qsw190mj0n10q0.png" alt="White perforated cap"></div>
+          </a>
           <p>White perforated cap</p>
         </li>
         <li>
-          <img src="20250825_1756_Professional Product Display_remix_01k3gjzs2me98bprg29t72d4n9.png" alt="Transparent medical mask">
+          <a href="20250825_1756_Professional Product Display_remix_01k3gjzs2me98bprg29t72d4n9.png" class="prod" data-caption="Transparent medical mask">
+            <div class="thumb-wrap"><img loading="lazy" class="thumb" src="20250825_1756_Professional Product Display_remix_01k3gjzs2me98bprg29t72d4n9.png" alt="Transparent medical mask"></div>
+          </a>
           <p>Transparent medical mask</p>
         </li>
         <li>
-          <img src="20250825_1759_Professional Product Shoot_remix_01k3gk4x73eb1s45qb09a17haq.png" alt="Blue cylindrical connector piece">
+          <a href="20250825_1759_Professional Product Shoot_remix_01k3gk4x73eb1s45qb09a17haq.png" class="prod" data-caption="Blue cylindrical connector piece">
+            <div class="thumb-wrap"><img loading="lazy" class="thumb" src="20250825_1759_Professional Product Shoot_remix_01k3gk4x73eb1s45qb09a17haq.png" alt="Blue cylindrical connector piece"></div>
+          </a>
           <p>Blue cylindrical connector piece</p>
         </li>
         <li>
-          <img src="20250825_1802_Red Tray Showcase_remix_01k3gka3t8fcw8b9gz82sfy84b.png" alt="Red rectangular tray">
+          <a href="20250825_1802_Red Tray Showcase_remix_01k3gka3t8fcw8b9gz82sfy84b.png" class="prod" data-caption="Red rectangular tray">
+            <div class="thumb-wrap"><img loading="lazy" class="thumb" src="20250825_1802_Red Tray Showcase_remix_01k3gka3t8fcw8b9gz82sfy84b.png" alt="Red rectangular tray"></div>
+          </a>
           <p>Red rectangular tray</p>
         </li>
         <li>
-          <img src="20250825_1811_Professional Product Caps_remix_01k3gkvn51exr8hsshty32zvmg.png" alt="Multiple red caps">
+          <a href="20250825_1811_Professional Product Caps_remix_01k3gkvn51exr8hsshty32zvmg.png" class="prod" data-caption="Multiple red caps">
+            <div class="thumb-wrap"><img loading="lazy" class="thumb" src="20250825_1811_Professional Product Caps_remix_01k3gkvn51exr8hsshty32zvmg.png" alt="Multiple red caps"></div>
+          </a>
           <p>Multiple red caps</p>
         </li>
         <li>
-          <img src="20250825_1847_Professional Product Photography_remix_01k3gnwtpsemzraf0zq7ncj3eb.png" alt="Transparent cylindrical cover">
+          <a href="20250825_1847_Professional Product Photography_remix_01k3gnwtpsemzraf0zq7ncj3eb.png" class="prod" data-caption="Transparent cylindrical cover">
+            <div class="thumb-wrap"><img loading="lazy" class="thumb" src="20250825_1847_Professional Product Photography_remix_01k3gnwtpsemzraf0zq7ncj3eb.png" alt="Transparent cylindrical cover"></div>
+          </a>
           <p>Transparent cylindrical cover</p>
         </li>
         <li>
-          <img src="20250825_1850_Lid in Focus_remix_01k3gp1khtfjkaa82kehvmk69c.png" alt="Red sieve-style lid">
+          <a href="20250825_1850_Lid in Focus_remix_01k3gp1khtfjkaa82kehvmk69c.png" class="prod" data-caption="Red sieve-style lid">
+            <div class="thumb-wrap"><img loading="lazy" class="thumb" src="20250825_1850_Lid in Focus_remix_01k3gp1khtfjkaa82kehvmk69c.png" alt="Red sieve-style lid"></div>
+          </a>
           <p>Red sieve-style lid</p>
         </li>
         <li>
-          <img src="20250825_1856_Red Cylinder Object_remix_01k3gpdbq3fb4a3m8zqb1g7fhr.png" alt="Red cylindrical plug">
+          <a href="20250825_1856_Red Cylinder Object_remix_01k3gpdbq3fb4a3m8zqb1g7fhr.png" class="prod" data-caption="Red cylindrical plug">
+            <div class="thumb-wrap"><img loading="lazy" class="thumb" src="20250825_1856_Red Cylinder Object_remix_01k3gpdbq3fb4a3m8zqb1g7fhr.png" alt="Red cylindrical plug"></div>
+          </a>
           <p>Red cylindrical plug</p>
         </li>
         <li>
-          <img src="20250825_1856_Red Object Focus_remix_01k3gpc5agfrhrbc4v6bsbbn6t.png" alt="Red ribbed industrial component">
+          <a href="20250825_1856_Red Object Focus_remix_01k3gpc5agfrhrbc4v6bsbbn6t.png" class="prod" data-caption="Red ribbed industrial component">
+            <div class="thumb-wrap"><img loading="lazy" class="thumb" src="20250825_1856_Red Object Focus_remix_01k3gpc5agfrhrbc4v6bsbbn6t.png" alt="Red ribbed industrial component"></div>
+          </a>
           <p>Red ribbed industrial component</p>
         </li>
       </ul>
     </section>
   </main>
+
   <footer class="footer">
     © 2025 TSM Plastics. All rights reserved.
   </footer>
+
+  <!-- LIGHTBOX -->
+  <dialog class="lightbox" id="lightbox" aria-label="Image preview">
+    <button class="lightbox-close" id="lbClose" aria-label="Close">×</button>
+    <div class="lightbox-inner">
+      <figure class="lightbox-figure">
+        <img class="lightbox-img" id="lbImg" alt="">
+        <figcaption class="lightbox-caption" id="lbCap"></figcaption>
+      </figure>
+    </div>
+  </dialog>
+
+  <script>
+    // Simple lightbox: opens full image on click
+    (function(){
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lbImg');
+      const lbCap = document.getElementById('lbCap');
+      const lbClose = document.getElementById('lbClose');
+
+      function open(src, cap, alt){
+        lbImg.src = src;
+        lbImg.alt = alt || cap || '';
+        lbCap.textContent = cap || alt || '';
+        lb.showModal?.();
+        if(!lb.open) lb.setAttribute('open','');
+      }
+      function close(){
+        lbImg.src = '';
+        lb.close?.();
+        lb.removeAttribute('open');
+      }
+
+      document.querySelectorAll('a.prod').forEach(a=>{
+        a.addEventListener('click', e=>{
+          e.preventDefault();
+          open(a.getAttribute('href'), a.getAttribute('data-caption'), a.querySelector('img')?.alt);
+        });
+        a.addEventListener('keydown', e=>{
+          if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); a.click(); }
+        });
+      });
+
+      lbClose.addEventListener('click', close);
+      lb.addEventListener('click', e=>{ if(e.target === lb) close(); });
+      window.addEventListener('keydown', e=>{ if(e.key === 'Escape' && (lb.open || lb.hasAttribute('open'))) close(); });
+    })();
+  </script>
 </body>
 </html>
