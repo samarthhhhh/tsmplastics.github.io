@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>TSM Plastics | Injection & Blow Molding | Noida, India</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="TSM Plastics: high-precision injection molding, blow molding, and PET stretch blow molding for FMCG, automotive, medical, packaging, and engineering." />
+  <meta name="theme-color" content="#0a4d8c" />
+
+  <!-- Optional perf hints -->
+  <link rel="preload" as="image" href="hero-poster.jpg" imagesrcset="hero-poster.jpg" />
+  <link rel="preload" as="video" href="hero.mp4" type="video/mp4" />
+  <link rel="preload" as="image" href="logo.jpeg" />
 
   <style>
     :root{
-      --brand:#0a4d8c; --ink:#333; --muted:#666; --bg:#f7f7f7; --radius:10px; --maxw:1100px;
+      --brand:#0a4d8c; --ink:#222; --muted:#666; --bg:#f7f7f7; --radius:10px; --maxw:1100px;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);scroll-behavior:smooth}
+    html,body{margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fff;scroll-behavior:smooth}
+    img{max-width:100%;height:auto;display:block}
 
     /* Sticky nav */
     nav.site-nav{position:sticky;top:0;z-index:10001;background:var(--brand);color:#fff;box-shadow:0 2px 10px rgba(0,0,0,.08)}
     .nav-inner{max-width:var(--maxw);margin:auto;display:flex;gap:20px;align-items:center;padding:.6rem 1rem}
     .nav-inner img{height:36px;border-radius:6px}
-    .nav-link{color:#fff;text-decoration:none;padding:.35rem .5rem;border-radius:8px}
+    .nav-link{color:#fff;text-decoration:none;padding:.35rem .5rem;border-radius:8px;white-space:nowrap}
     .nav-link:hover{background:rgba(255,255,255,.12)}
     .nav-cta{margin-left:auto;background:#fff;color:var(--brand);padding:.4rem .75rem;border-radius:10px;text-decoration:none}
     .nav-cta:hover{opacity:.9}
@@ -26,22 +34,28 @@
     section h2{font-size:clamp(1.4rem,2.5vw,2rem);color:var(--brand);margin:0 0 1rem;border-bottom:2px solid var(--brand);display:inline-block;padding-bottom:6px}
 
     /* Hero */
-    header.video-header{position:relative;height:100vh;overflow:hidden}
-    header.video-header video{width:100%;height:100%;object-fit:cover}
+    header.video-header{position:relative;height:100vh;min-height:520px;overflow:hidden;background:#000}
+    header.video-header video{width:100%;height:100%;object-fit:cover;display:block}
     header .overlay{position:absolute;inset:0;background:rgba(0,0,0,.45);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;padding:1rem}
-    header .overlay img.logo{max-width:280px}
-    header .subhead{margin-top:1rem;font-size:clamp(1rem,2.4vw,1.25rem)}
+    header .overlay img.logo{max-width:280px;filter:drop-shadow(0 2px 10px rgba(0,0,0,.3))}
+    header .subhead{margin-top:1rem;font-size:clamp(1rem,2.4vw,1.25rem);max-width:720px}
     header .overlay .hero-cta{margin-top:1rem;background:#fff;color:var(--brand);padding:.6rem 1rem;border-radius:12px;text-decoration:none}
+    @media (prefers-reduced-motion: reduce){
+      header.video-header video{display:none}
+      header.video-header{background: url('hero-poster.jpg') center/cover no-repeat}
+    }
 
     /* Industries */
     .industries .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem}
     .industry-box{background:#f4f4f4;border-radius:8px;padding:1rem;cursor:pointer;transition:transform .25s ease, background .25s ease}
     .industry-box:hover{transform:translateY(-2px);background:#ececec}
+    .industry-box h3{margin:.25rem 0 .25rem}
+    .industry-box p{margin:0;color:var(--muted);font-size:.95rem}
 
     /* Generic modal (Industries) */
     .modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.7);overflow:auto}
     .modal-content{background:#fff;margin:8% auto;padding:20px;border-radius:8px;max-width:800px}
-    .modal-content img{max-width:100%;height:auto;margin-top:10px}
+    .modal-content img{max-width:100%;height:auto;margin-top:10px;border-radius:8px}
     .close{color:#999;float:right;font-size:28px;font-weight:bold;cursor:pointer}
     .close:hover{color:#111}
 
@@ -49,22 +63,23 @@
     .client-logos{max-width:var(--maxw);margin:4rem auto;padding:0 20px;text-align:center}
     .client-logos h2{font-size:clamp(1.6rem,3vw,2.2rem)}
     .logo-marquee{position:relative;overflow:hidden}
-    .logo-scroll{display:flex;gap:40px;align-items:center;overflow-x:auto;scroll-behavior:smooth;padding:8px 0;cursor:grab}
+    .logo-scroll{display:flex;gap:40px;align-items:center;overflow-x:auto;scroll-behavior:smooth;padding:8px 0;cursor:grab;scrollbar-width:none}
+    .logo-scroll::-webkit-scrollbar{display:none}
     .logo-scroll:active{cursor:grabbing}
-    .logo-box{flex:0 0 auto;width:140px;height:64px;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;padding:8px;outline:none}
-    .logo-box img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+    .logo-box{flex:0 0 auto;width:140px;height:64px;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;padding:8px;outline:none;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+    .logo-box img{max-width:100%;max-height:100%;object-fit:contain;transition:transform .2s ease}
     .logo-link{display:inline-block}
     .logo-link:focus .logo-box{box-shadow:0 0 0 3px rgba(10,77,140,.25)}
-    .logo-box:hover img{transform:scale(1.04);transition:transform .2s ease}
-    @media (max-width:768px){.logo-box{width:110px;height:40px;gap:24px}}
+    .logo-box:hover img{transform:scale(1.04)}
+    @media (max-width:768px){.logo-box{width:110px;height:40px}}
 
     /* CTA band / Footer / Back to top */
     .cta-band{background:#eef6ff}
     .cta-inner{max-width:var(--maxw);margin:auto;padding:20px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
-    .btn{background:var(--brand);color:#fff;padding:.6rem .9rem;border-radius:10px;text-decoration:none}
-    .btn:hover{opacity:.9}
+    .btn{background:var(--brand);color:#fff;padding:.6rem .9rem;border-radius:10px;text-decoration:none;border:0}
+    .btn:hover{opacity:.9;cursor:pointer}
     footer.footer{background:var(--brand);color:#fff;text-align:center;padding:1.2rem}
-    #toTop{position:fixed;right:16px;bottom:16px;display:none;background:var(--brand);color:#fff;border:none;padding:.6rem .75rem;border-radius:999px;cursor:pointer}
+    #toTop{position:fixed;right:16px;bottom:16px;display:none;background:var(--brand);color:#fff;border:none;padding:.6rem .75rem;border-radius:999px;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.15)}
   </style>
 </head>
 
@@ -73,11 +88,10 @@
   <!-- NAV -->
   <nav class="site-nav" aria-label="Primary">
     <div class="nav-inner">
-      <!-- Swap src with your logo path -->
-      <a href="/" class="nav-link" aria-label="Home"><img src="logo.png" alt="TSM Plastics"></a>
+      <!-- Use the JPEG logo per your request -->
+      <a href="/" class="nav-link" aria-label="Home"><img src="logo.jpeg" alt="TSM Plastics"></a>
       <a href="#about" class="nav-link">About</a>
       <a href="#industries" class="nav-link">Industries</a>
-      <!-- New: plain link to standalone products page -->
       <a href="/our-products.html" class="nav-link">Our Products</a>
       <a href="#clients" class="nav-link">Clients</a>
       <a href="#contact" class="nav-link">Contact</a>
@@ -87,13 +101,14 @@
 
   <!-- HERO -->
   <header class="video-header" role="banner">
-    <!-- Replace with your MP4 if you use one -->
-    <video autoplay muted loop playsinline poster="hero-poster.jpg">
-      <source src="hero.mp4" type="video/mp4">
+    <!-- If autoplay was failing on some browsers, this setup fixes it: muted + playsinline + multiple sources -->
+    <video id="heroVideo" autoplay muted playsinline loop preload="auto" poster="hero-poster.jpg">
+      <source src="hero.webm" type="video/webm" />
+      <source src="hero.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
     <div class="overlay">
-      <img class="logo" src="logo.png" alt="TSM Plastics">
+      <img class="logo" src="logo.jpeg" alt="TSM Plastics">
       <p class="subhead">Precision plastics for FMCG, automotive, medical, packaging and engineering.</p>
       <div>
         <a class="hero-cta" href="/our-products.html">View products</a>
@@ -149,7 +164,6 @@
     <h2 id="clients-h2">Our Clients</h2>
     <div class="logo-marquee">
       <div class="logo-scroll" id="logoScroll" tabindex="0" aria-label="Client logos carousel">
-        <!-- Make sure all logos are same visual size -->
         <a class="logo-link" href="#" aria-label="MasterChow"><div class="logo-box"><img src="masterchow_logo.jpg" alt="MasterChow"></div></a>
         <a class="logo-link" href="#" aria-label="Triveni Almirah"><div class="logo-box"><img src="triveni.png" alt="Triveni Almirah"></div></a>
         <a class="logo-link" href="#" aria-label="Romsons"><div class="logo-box"><img src="romsons.png" alt="Romsons"></div></a>
@@ -157,6 +171,7 @@
         <a class="logo-link" href="#" aria-label="Patanjali"><div class="logo-box"><img src="patanjalilogo.png" alt="Patanjali"></div></a>
         <a class="logo-link" href="#" aria-label="Dabur"><div class="logo-box"><img src="dabur.png" alt="Dabur"></div></a>
         <a class="logo-link" href="#" aria-label="Indian Railways"><div class="logo-box"><img src="indianrailways.png" alt="Indian Railways"></div></a>
+        <!-- Keep TOPS somewhere in the middle; JS will center it on load -->
         <a class="logo-link" href="#" aria-label="Tops" data-tops><div class="logo-box"><img src="topslogo.png" alt="Tops"></div></a>
       </div>
     </div>
@@ -177,8 +192,9 @@
   <!-- RFQ -->
   <section id="rfq" aria-labelledby="rfq-h2">
     <h2 id="rfq-h2">Request a Quote</h2>
+    <!-- Replace your Formspree endpoint -->
     <form action="https://formspree.io/f/your-id" method="POST">
-      <label>Don’t fill this out: <input name="_gotcha" style="display:none" tabindex="-1" autocomplete="off"></label>
+      <label>Don’t fill this out: <input name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true"></label>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:12px 0">
         <input type="text" name="name" placeholder="Your name" required>
         <input type="email" name="email" placeholder="Email" required>
@@ -210,7 +226,9 @@
     /* Industries modal */
     function openModal(title, img, desc) {
       document.getElementById('modalTitle').innerText = title;
-      document.getElementById('modalImg').src = img;
+      const mimg = document.getElementById('modalImg');
+      mimg.src = img;
+      mimg.alt = title;
       document.getElementById('modalDesc').innerText = desc;
       document.getElementById('modal').style.display = 'block';
     }
@@ -227,8 +245,10 @@
       if(!scroller) return;
 
       let isDown=false,startX=0,scrollLeft=0,paused=false,rafId=null,speed=0.4;
+
       const pause=()=>{paused=true;if(rafId) cancelAnimationFrame(rafId);};
       const resume=()=>{paused=false;tick();};
+
       function tick(){
         if(paused) return;
         scroller.scrollLeft += speed;
@@ -237,19 +257,41 @@
         }
         rafId = requestAnimationFrame(tick);
       }
+
       scroller.addEventListener('mousedown',(e)=>{isDown=true;startX=e.pageX-scroller.offsetLeft;scrollLeft=scroller.scrollLeft;pause();});
-      scroller.addEventListener('mouseleave',()=>{isDown=false;resume();});
       scroller.addEventListener('mouseup',()=>{isDown=false;resume();});
       scroller.addEventListener('mousemove',(e)=>{ if(!isDown) return; const x=e.pageX-scroller.offsetLeft; const walk=(x-startX)*1.2; scroller.scrollLeft = scrollLeft - walk;});
       scroller.addEventListener('mouseenter',pause);
-      scroller.addEventListener('mouseleave',resume);
-      window.addEventListener('load', resume);
+      scroller.addEventListener('mouseleave',()=>{isDown=false;resume();});
+      window.addEventListener('load', ()=>{
+        // Center TOPS on load
+        const tops = scroller.querySelector('[data-tops]');
+        if(tops){
+          const offset = tops.offsetLeft + tops.offsetWidth/2 - scroller.clientWidth/2;
+          scroller.scrollLeft = Math.max(0, offset);
+        }
+        resume();
+      });
     })();
 
     /* Back to top visibility */
     (function(){
       const btn = document.getElementById('toTop');
       window.addEventListener('scroll',()=>{ btn.style.display = window.scrollY > 600 ? 'block' : 'none'; });
+    })();
+
+    /* Ensure hero video attempts playback; if blocked, poster still shows */
+    (function(){
+      const v = document.getElementById('heroVideo');
+      if(!v) return;
+      const tryPlay = () => {
+        const p = v.play();
+        if(p && typeof p.then === 'function'){
+          p.catch(()=>{/* Autoplay might be blocked; do nothing, poster remains */});
+        }
+      };
+      if(v.readyState >= 2) tryPlay();
+      else v.addEventListener('canplay', tryPlay, {once:true});
     })();
   </script>
 </body>
