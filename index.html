@@ -13,18 +13,22 @@
   <link rel="preload" as="image" href="logo.jpeg" />
 
   <style>
-    :root{ --brand:#0a4d8c; --ink:#222; --muted:#666; --bg:#f7f7f7; --radius:10px; --maxw:1100px; }
+    :root{
+      --brand:#0a4d8c; --ink:#222; --muted:#666; --bg:#fff; --pill:#eef6ff;
+      --radius:10px; --maxw:1100px;
+      --shadow:0 1px 6px rgba(0,0,0,.08);
+    }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fff;scroll-behavior:smooth}
     img{max-width:100%;height:auto;display:block}
 
     /* Nav */
     nav.site-nav{position:sticky;top:0;z-index:10001;background:var(--brand);color:#fff;box-shadow:0 2px 10px rgba(0,0,0,.08)}
-    .nav-inner{max-width:var(--maxw);margin:auto;display:flex;gap:20px;align-items:center;padding:.6rem 1rem}
+    .nav-inner{max-width:var(--maxw);margin:auto;display:flex;gap:16px;align-items:center;padding:.6rem 1rem}
     .nav-inner img{height:36px;border-radius:6px}
     .nav-link{color:#fff;text-decoration:none;padding:.35rem .5rem;border-radius:8px;white-space:nowrap}
     .nav-link:hover{background:rgba(255,255,255,.12)}
-    .nav-cta{margin-left:auto;background:#fff;color:var(--brand);padding:.4rem .75rem;border-radius:10px;text-decoration:none}
+    .nav-cta{margin-left:auto;background:#fff;color:var(--brand);padding:.45rem .8rem;border-radius:10px;text-decoration:none}
     .nav-cta:hover{opacity:.9}
 
     /* Sections */
@@ -64,28 +68,59 @@
     .logo-scroll{display:flex;gap:40px;align-items:center;overflow-x:auto;scroll-behavior:smooth;padding:8px 0;cursor:grab;scrollbar-width:none}
     .logo-scroll::-webkit-scrollbar{display:none}
     .logo-scroll:active{cursor:grabbing}
-    .logo-box{flex:0 0 auto;width:140px;height:64px;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;padding:8px;outline:none;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+    .logo-box{flex:0 0 auto;width:140px;height:64px;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;padding:8px;outline:none;box-shadow:var(--shadow)}
     .logo-box img{max-width:100%;max-height:100%;object-fit:contain;transition:transform .2s ease}
     .logo-link{display:inline-block}
     .logo-link:focus .logo-box{box-shadow:0 0 0 3px rgba(10,77,140,.25)}
     .logo-box:hover img{transform:scale(1.04)}
     @media (max-width:768px){.logo-box{width:110px;height:40px}}
 
-    /* CTA / Footer / Back to top */
-    .cta-band{background:#eef6ff}
+    /* CTA band */
+    .cta-band{background:var(--pill);padding:0}
     .cta-inner{max-width:var(--maxw);margin:auto;padding:20px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
-    .btn{background:var(--brand);color:#fff;padding:.6rem .9rem;border-radius:10px;text-decoration:none;border:0}
+    .cta-title{font-weight:700}
+    .cta-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{background:var(--brand);color:#fff;padding:.7rem 1rem;border-radius:999px;text-decoration:none;border:0;display:inline-block}
     .btn:hover{opacity:.9;cursor:pointer}
-    footer.footer{background:var(--brand);color:#fff;text-align:center;padding:1.2rem}
-    #toTop{position:fixed;right:16px;bottom:16px;display:none;background:var(--brand);color:#fff;border:none;padding:.6rem .75rem;border-radius:999px;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.15)}
+    .btn--ghost{background:#fff;color:var(--brand);border:1px solid rgba(10,77,140,.25)}
+    .btn--full{width:100%;text-align:center}
 
-    /* Contact layout with map */
+    /* Mobile CTA layout */
+    @media (max-width:560px){
+      .cta-inner{flex-direction:column;align-items:stretch}
+      .cta-actions{flex-direction:column}
+      .btn{width:100%}
+    }
+
+    /* RFQ */
+    #rfq form{margin-top:8px}
+    .form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .form-grid input,.form-grid textarea{width:100%;padding:.8rem;border:1px solid #ddd;border-radius:10px;font-size:1rem}
+    textarea{resize:vertical}
+    .form-actions{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap}
+    .hint{color:var(--muted);font-size:.9rem}
+
+    /* Laptop-friendly spacing */
+    @media (min-width:900px){
+      #rfq{padding-top:2.5rem}
+      .form-grid{grid-template-columns:repeat(4,1fr)}
+      .form-grid textarea{grid-column:1/-1}
+    }
+    @media (max-width:680px){
+      .form-grid{grid-template-columns:1fr}
+    }
+
+    /* Contact + Map */
     .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:start}
-    @media (max-width: 900px){ .contact-grid{grid-template-columns:1fr; } }
-    .map-wrap{border-radius:12px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,.08);background:#f8f8f8}
-    .map-wrap iframe{width:100%;height:340px;border:0;display:block}
+    @media (max-width: 900px){ .contact-grid{grid-template-columns:1fr;} }
+    .map-wrap{border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:#f8f8f8}
+    .map-wrap iframe{width:100%;height:360px;border:0;display:block}
     .map-actions{padding:8px 10px;text-align:right}
     .map-actions a{font-size:.9rem;color:var(--brand);text-decoration:none}
+
+    /* Footer / Back to top */
+    footer.footer{background:var(--brand);color:#fff;text-align:center;padding:1.2rem;margin-top:2rem}
+    #toTop{position:fixed;right:16px;bottom:16px;display:none;background:var(--brand);color:#fff;border:none;padding:.6rem .75rem;border-radius:999px;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.15)}
   </style>
 </head>
 
@@ -107,9 +142,6 @@
   <!-- HERO -->
   <header class="video-header" role="banner">
     <video id="heroVideo" autoplay muted playsinline loop preload="metadata" poster="hero-poster.jpg">
-      <!-- Optional webm if you have it:
-      <source src="injection.webm" type="video/webm" />
-      -->
       <source src="injection.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
@@ -185,10 +217,10 @@
   <!-- CTA -->
   <section class="cta-band" aria-label="Call to action">
     <div class="cta-inner">
-      <strong>Need a quote or sample run?</strong>
-      <div>
+      <div class="cta-title">Need a quote or sample run?</div>
+      <div class="cta-actions">
         <a class="btn" href="tel:+919910088187">Call S.K. Sharma</a>
-        <a class="btn" href="https://wa.me/919958703900">WhatsApp</a>
+        <a class="btn btn--ghost" href="https://wa.me/919958703900">WhatsApp</a>
         <a class="btn" href="#rfq">Email RFQ</a>
       </div>
     </div>
@@ -197,22 +229,23 @@
   <!-- RFQ -->
   <section id="rfq" aria-labelledby="rfq-h2">
     <h2 id="rfq-h2">Request a Quote</h2>
-    <form action="https://formspree.io/f/your-id" method="POST">
+    <form action="https://formspree.io/f/your-id" method="POST" novalidate>
       <!-- Proper honeypot: hidden from humans, still catches bots -->
       <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">
         <label for="hp_field">Leave this field empty</label>
         <input id="hp_field" name="_gotcha" tabindex="-1" autocomplete="off">
       </div>
 
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:12px 0">
+      <div class="form-grid">
         <input type="text" name="name" placeholder="Your name" required>
         <input type="email" name="email" placeholder="Email" required>
         <input type="tel" name="phone" placeholder="Phone">
         <input type="text" name="company" placeholder="Company">
+        <textarea name="message" rows="6" placeholder="Brief requirements (process, material, capacity, qty, timeline)"></textarea>
       </div>
-      <textarea name="message" rows="5" placeholder="Brief requirements (process, material, capacity, qty)"></textarea>
-      <div style="margin-top:10px">
+      <div class="form-actions">
         <button class="btn" type="submit">Send RFQ</button>
+        <span class="hint">We usually reply within 1 business day.</span>
       </div>
     </form>
   </section>
@@ -228,16 +261,11 @@
       </div>
 
       <div class="map-wrap">
-        <!-- Basic embed that works now. Replace with the official "Embed map" iframe later if you want. -->
-        <iframe
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps?q=D-20%2C%20Sector-7%2C%20Noida%2C%20UP%2C%20India&output=embed"
-          allowfullscreen
-          aria-label="Map to TSM Plastics, D-20, Sector-7, Noida">
-        </iframe>
+        <!-- Your official Google Maps business embed -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.124788429108!2d77.31546417575582!3d28.596032975684597!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce4f111a2d51b%3A0x166a23034cff3885!2sTSM%20Plastics!5e0!3m2!1sen!2sin!4v1756201877559!5m2!1sen!2sin"
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
         <div class="map-actions">
-          <!-- Paste your business Share link here when you copy it from Google Maps -->
           <a href="https://maps.app.goo.gl/REPLACE_WITH_YOUR_LINK" target="_blank" rel="noopener">Open in Google Maps</a>
         </div>
       </div>
@@ -322,3 +350,4 @@
   </script>
 </body>
 </html>
+
