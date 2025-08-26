@@ -1,16 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
   <title>TSM Plastics | Injection & Blow Molding | Noida, India</title>
-
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <meta name="theme-color" content="#0b1c2c">
-  <meta name="description" content="TSM Plastics: injection molding, blow molding, PET stretch blow. FMCG, automotive, medical, packaging. Noida, India.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     :root{
@@ -35,7 +28,7 @@
     /* Hero */
     header.video-header{position:relative;height:100vh;overflow:hidden}
     header.video-header video{width:100%;height:100%;object-fit:cover}
-    header .overlay{position:absolute;inset:0;background:rgba(0,0,0,.4);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;padding:1rem}
+    header .overlay{position:absolute;inset:0;background:rgba(0,0,0,.45);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;padding:1rem}
     header .overlay img.logo{max-width:280px}
     header .subhead{margin-top:1rem;font-size:clamp(1rem,2.4vw,1.25rem)}
     header .overlay .hero-cta{margin-top:1rem;background:#fff;color:var(--brand);padding:.6rem 1rem;border-radius:12px;text-decoration:none}
@@ -65,30 +58,6 @@
     .logo-box:hover img{transform:scale(1.04);transition:transform .2s ease}
     @media (max-width:768px){.logo-box{width:110px;height:40px;gap:24px}}
 
-    /* Products */
-    .products{padding:3rem 1.5rem}
-    .filter-bar{display:flex;gap:10px;flex-wrap:wrap;margin:.25rem 0 1rem}
-    .chip{border:1px solid var(--brand);background:#fff;color:var(--brand);padding:.35rem .7rem;border-radius:999px;cursor:pointer}
-    .chip.active{background:var(--brand);color:#fff}
-    .product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-    .product-card{background:var(--bg);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:transform .25s ease, box-shadow .25s ease}
-    .product-card:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.08)}
-    .product-card img{width:100%;height:180px;object-fit:cover;display:block}
-    .product-meta{padding:.75rem .9rem}
-    .product-meta h4{margin:0;font-size:1rem;color:#222}
-    .product-meta p{margin:.35rem 0 0;font-size:.9rem;color:var(--muted)}
-
-    /* Product lightbox */
-    #productModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:10000;overflow:auto}
-    #productModal .content{background:#fff;max-width:950px;margin:5% auto;border-radius:10px;overflow:hidden}
-    #productModal header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #eee}
-    #productModal header h3{margin:0;font-size:1.1rem;color:var(--brand)}
-    #productModal header .close{font-size:28px;line-height:1;cursor:pointer;color:#999}
-    #productModal header .close:hover{color:#111}
-    #productModal figure{margin:0}
-    #productModal img{max-width:100%;max-height:80vh;object-fit:contain;display:block;margin:0 auto}
-    #productModal .caption{padding:12px 16px;color:#444;font-size:.95rem}
-
     /* CTA band / Footer / Back to top */
     .cta-band{background:#eef6ff}
     .cta-inner{max-width:var(--maxw);margin:auto;padding:20px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
@@ -98,212 +67,144 @@
     #toTop{position:fixed;right:16px;bottom:16px;display:none;background:var(--brand);color:#fff;border:none;padding:.6rem .75rem;border-radius:999px;cursor:pointer}
   </style>
 </head>
+
 <body>
 
-  <!-- Sticky nav -->
+  <!-- NAV -->
   <nav class="site-nav" aria-label="Primary">
     <div class="nav-inner">
-      <img src="logo.jpeg" alt="TSM Plastics">
-      <a class="nav-link" href="#about">About</a>
-      <a class="nav-link" href="#industries">Industries</a>
-      <a class="nav-link" href="#products">Products</a>
-      <a class="nav-link" href="#clients">Clients</a>
-      <a class="nav-link" href="#contact">Contact</a>
-      <a class="nav-cta" href="#rfq">Get a quote</a>
+      <!-- Swap src with your logo path -->
+      <a href="/" class="nav-link" aria-label="Home"><img src="logo.png" alt="TSM Plastics"></a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#industries" class="nav-link">Industries</a>
+      <!-- New: plain link to standalone products page -->
+      <a href="/our-products.html" class="nav-link">Our Products</a>
+      <a href="#clients" class="nav-link">Clients</a>
+      <a href="#contact" class="nav-link">Contact</a>
+      <a href="#rfq" class="nav-cta">Get a quote</a>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <header class="video-header" aria-label="Hero">
-    <video autoplay muted loop playsinline preload="metadata" poster="injection-poster.jpg">
-      <source src="injection.mp4" type="video/mp4">
+  <!-- HERO -->
+  <header class="video-header" role="banner">
+    <!-- Replace with your MP4 if you use one -->
+    <video autoplay muted loop playsinline poster="hero-poster.jpg">
+      <source src="hero.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
     <div class="overlay">
-      <img src="logo.jpeg" alt="TSM Plastics Logo" class="logo" />
+      <img class="logo" src="logo.png" alt="TSM Plastics">
       <p class="subhead">Precision plastics for FMCG, automotive, medical, packaging and engineering.</p>
-      <a class="hero-cta" href="#products">View products</a>
+      <div>
+        <a class="hero-cta" href="/our-products.html">View products</a>
+      </div>
     </div>
   </header>
 
-  <!-- About -->
-  <section id="about" class="about">
-    <h2>About Us</h2>
-    <p>
-      TSM Plastics has been shaping the future of plastic manufacturing for over 30 years.
-      We specialize in high-precision injection molding, blow molding, and PET stretch blow molding,
-      delivering custom solutions to leaders across FMCG, automotive, medical, packaging, and engineering sectors.
-    </p>
-    <p>
-      Our state-of-the-art facility has consistently delivered high-quality, cost-effective,
-      and industry-specific plastic solutions to a global clientele.
-    </p>
-    <p>
-      Whether you’re a growing brand or an established name, we help you scale with
-      reliable, innovative plastic solutions.
-    </p>
+  <!-- ABOUT -->
+  <section id="about" aria-labelledby="about-h2">
+    <h2 id="about-h2">About Us</h2>
+    <p>TSM Plastics has been shaping the future of plastic manufacturing for over 30 years. We specialize in high-precision injection molding, blow molding, and PET stretch blow molding, delivering custom solutions to leaders across FMCG, automotive, medical, packaging, and engineering sectors.</p>
+    <p>Our state-of-the-art facility consistently delivers high-quality, cost-effective, and industry-specific plastic solutions. Whether you’re a growing brand or an established name, we help you scale with reliable, innovative plastics.</p>
   </section>
 
-  <!-- Industries -->
-  <section id="industries" class="industries">
-    <h2>Industries We Serve</h2>
-    <p>Click on a category below to see real product images and details.</p>
+  <!-- INDUSTRIES -->
+  <section id="industries" class="industries" aria-labelledby="industries-h2">
+    <h2 id="industries-h2">Industries We Serve</h2>
+    <p>Click on a category below to see representative product images and details.</p>
     <div class="grid">
-      <div class="industry-box" onclick="openModal('FMCG', 'FMCG.png', 'Food, cosmetics, skincare, dental & hygiene components')">
+      <article class="industry-box" tabindex="0" onclick="openModal('FMCG','fmcg.jpg','Food, cosmetics, skincare, dental & hygiene components')">
         <h3>FMCG</h3><p>Food, cosmetics, skincare, dental & hygiene components</p>
-      </div>
-      <div class="industry-box" onclick="openModal('Automotive', 'auto.png', 'Custom lightweight parts for diverse automotive needs')">
+      </article>
+      <article class="industry-box" tabindex="0" onclick="openModal('Automotive','automotive.jpg','Custom lightweight parts for diverse automotive needs')">
         <h3>Automotive</h3><p>Custom lightweight parts for diverse automotive needs</p>
-      </div>
-      <div class="industry-box" onclick="openModal('Engineering', 'engineering.jpg', 'High-precision components for industrial engineering')">
+      </article>
+      <article class="industry-box" tabindex="0" onclick="openModal('Engineering','engineering.jpg','High-precision components for industrial engineering')">
         <h3>Engineering</h3><p>High-precision components for industrial engineering</p>
-      </div>
-      <div class="industry-box" onclick="openModal('Household Tools & Equipment', 'tools.png', 'Household tools & specialized equipment plastics')">
+      </article>
+      <article class="industry-box" tabindex="0" onclick="openModal('Tools & Equipment','tools.jpg','Household tools & specialized equipment plastics')">
         <h3>Tools & Equipment</h3><p>Household tools & specialized equipment plastics</p>
-      </div>
-      <div class="industry-box" onclick="openModal('Medical', 'medical.png', 'Reliable, clean plastic solutions for healthcare')">
+      </article>
+      <article class="industry-box" tabindex="0" onclick="openModal('Medical','medical.jpg','Reliable, clean plastic solutions for healthcare')">
         <h3>Medical</h3><p>Reliable, clean plastic solutions for healthcare</p>
-      </div>
-      <div class="industry-box" onclick="openModal('Packaging', 'packaging.png', 'Dry, liquid, bulk containers, caps, lids and more')">
+      </article>
+      <article class="industry-box" tabindex="0" onclick="openModal('Packaging','packaging.jpg','Dry, liquid, bulk containers, caps, lids and more')">
         <h3>Packaging</h3><p>Dry, liquid, bulk containers, caps, lids and more</p>
-      </div>
+      </article>
     </div>
   </section>
 
-  <!-- Industries modal -->
-  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <!-- Industries Modal -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" style="display:none">
     <div class="modal-content">
-      <span class="close" onclick="closeModal()" aria-label="Close">&times;</span>
-      <h2 id="modalTitle"></h2>
+      <span class="close" id="modalClose" aria-label="Close modal">&times;</span>
+      <h3 id="modalTitle">Preview</h3>
+      <img id="modalImg" alt="">
       <p id="modalDesc"></p>
-      <img id="modalImg" src="" alt="Industry image">
     </div>
   </div>
 
-  <!-- Clients -->
-  <section id="clients" class="client-logos" aria-label="Clients">
-    <h2>Our Clients</h2>
-    <div class="logo-marquee" aria-live="off">
-      <div class="logo-scroll" id="logoScroll">
-        <!-- Order carefully so Tops can be centered at load -->
-        <a class="logo-link" aria-label="MasterChow" href="https://www.masterchow.in" target="_blank" rel="noopener">
-          <div class="logo-box"><img src="masterchow_logo.jpg" alt="MasterChow"></div>
-        </a>
-        <a class="logo-link" aria-label="Triveni Almirah" href="https://www.trivenialmirah.com" target="_blank" rel="noopener">
-          <div class="logo-box"><img src="triveni.png" alt="Triveni Almirah"></div>
-        </a>
-        <a class="logo-link" aria-label="Romsons" href="https://www.romsons.com" target="_blank" rel="noopener">
-          <div class="logo-box"><img src="romsons.png" alt="Romsons"></div>
-        </a>
-        <a class="logo-link" aria-label="Baidyanath" href="https://www.baidyanath.co.in" target="_blank" rel="noopener">
-          <div class="logo-box"><img src="Baidyanath_logo.png" alt="Baidyanath"></div>
-        </a>
-        <a class="logo-link" aria-label="Patanjali" href="https://www.patanjaliayurved.net" target="_blank" rel="noopener">
-          <div class="logo-box"><img src="patanjalilogo.png" alt="Patanjali"></div>
-        </a>
-        <!-- Tops (we will center this at load using JS) -->
-        <a class="logo-link" aria-label="Tops" href="https://www.tops.in" target="_blank" rel="noopener" data-tops>
-          <div class="logo-box"><img src="topslogo.png" alt="Tops"></div>
-        </a>
-        <a class="logo-link" aria-label="Indian Railways" href="https://indianrailways.gov.in" target="_blank" rel="noopener">
-          <div class="logo-box"><img src="indianrailways.png" alt="Indian Railways"></div>
-        </a>
-
-        <!-- Duplicate sequence to fake infinite feel -->
-        <a class="logo-link" aria-label="MasterChow" href="https://www.masterchow.in" target="_blank" rel="noopener">
-          <div class="logo-box"><img src="masterchow_logo.jpg" alt="MasterChow"></div>
-        </a>
-        <a class="logo-link" aria-label="Triveni Almirah" href="https://www.trivenialmirah.com" target="_blank" rel="noopener">
-          <div class="logo-box"><img src="triveni.png" alt="Triveni Almirah"></div>
-        </a>
-        <a class="logo-link" aria-label="Romsons" href="https://www.romsons.com" target="_blank" rel="noopener">
-          <div class="logo-box"><img src="romsons.png" alt="Romsons"></div>
-        </a>
-        <a class="logo-link" aria-label="Baidyanath" href="https://www.baidyanath.co.in" target="_blank" rel="noopener">
-          <div class="logo-box"><img src="Baidyanath_logo.png" alt="Baidyanath"></div>
-        </a>
-        <a class="logo-link" aria-label="Patanjali" href="https://www.patanjaliayurved.net" target="_blank" rel="noopener">
-          <div class="logo-box"><img src="patanjalilogo.png" alt="Patanjali"></div>
-        </a>
-        <a class="logo-link" aria-label="Tops" href="https://www.tops.in" target="_blank" rel="noopener">
-          <div class="logo-box"><img src="topslogo.png" alt="Tops"></div>
-        </a>
-        <a class="logo-link" aria-label="Indian Railways" href="https://indianrailways.gov.in" target="_blank" rel="noopener">
-          <div class="logo-box"><img src="indianrailways.png" alt="Indian Railways"></div>
-        </a>
+  <!-- CLIENTS -->
+  <section id="clients" class="client-logos" aria-labelledby="clients-h2">
+    <h2 id="clients-h2">Our Clients</h2>
+    <div class="logo-marquee">
+      <div class="logo-scroll" id="logoScroll" tabindex="0" aria-label="Client logos carousel">
+        <!-- Make sure all logos are same visual size -->
+        <a class="logo-link" href="#" aria-label="MasterChow"><div class="logo-box"><img src="masterchow_logo.jpg" alt="MasterChow"></div></a>
+        <a class="logo-link" href="#" aria-label="Triveni Almirah"><div class="logo-box"><img src="triveni.png" alt="Triveni Almirah"></div></a>
+        <a class="logo-link" href="#" aria-label="Romsons"><div class="logo-box"><img src="romsons.png" alt="Romsons"></div></a>
+        <a class="logo-link" href="#" aria-label="Baidyanath"><div class="logo-box"><img src="Baidyanath_logo.png" alt="Baidyanath"></div></a>
+        <a class="logo-link" href="#" aria-label="Patanjali"><div class="logo-box"><img src="patanjalilogo.png" alt="Patanjali"></div></a>
+        <a class="logo-link" href="#" aria-label="Dabur"><div class="logo-box"><img src="dabur.png" alt="Dabur"></div></a>
+        <a class="logo-link" href="#" aria-label="Indian Railways"><div class="logo-box"><img src="indianrailways.png" alt="Indian Railways"></div></a>
+        <a class="logo-link" href="#" aria-label="Tops" data-tops><div class="logo-box"><img src="topslogo.png" alt="Tops"></div></a>
       </div>
     </div>
   </section>
 
-  <!-- Products -->
-  <section id="products" class="products" aria-label="Products">
-    <h2>Products</h2>
-    <div class="filter-bar" id="procFilters">
-      <button class="chip active" data-proc="all" type="button">All Products</button>
-      <button class="chip" data-proc="injection" type="button">Injection Molding</button>
-      <button class="chip" data-proc="blow" type="button">Blow Molding</button>
-      <button class="chip" data-proc="pet" type="button">PET Stretch Blow Molding</button>
+  <!-- CTA -->
+  <section class="cta-band" aria-label="Call to action">
+    <div class="cta-inner">
+      <strong>Need a quote or sample run?</strong>
+      <div>
+        <a class="btn" href="tel:+919910088187">Call S.K. Sharma</a>
+        <a class="btn" href="https://wa.me/919958703900">WhatsApp</a>
+        <a class="btn" href="#rfq">Email RFQ</a>
+      </div>
     </div>
-    <p>Real shots from our production floor. Click to view larger.</p>
-    <div class="product-grid" id="productGrid"></div>
   </section>
-
-  <!-- Product Lightbox -->
-  <div id="productModal" aria-hidden="true" role="dialog" aria-labelledby="pmTitle">
-    <div class="content">
-      <header>
-        <h3 id="pmTitle">Preview</h3>
-        <span class="close" id="pmClose" aria-label="Close">&times;</span>
-      </header>
-      <figure>
-        <img id="pmImg" src="" alt="">
-        <figcaption class="caption" id="pmCaption"></figcaption>
-      </figure>
-    </div>
-  </div>
 
   <!-- RFQ -->
-  <section id="rfq" aria-label="Request a quote" style="max-width:900px;margin:auto">
-    <h2>Request a Quote</h2>
-    <form name="rfq" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-      <input type="hidden" name="form-name" value="rfq">
-      <p style="display:none"><label>Don’t fill this out: <input name="bot-field"></label></p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
-        <input name="name" placeholder="Your name" required>
-        <input name="email" type="email" placeholder="Email" required>
-        <input name="phone" placeholder="Phone">
-        <input name="company" placeholder="Company">
-        <textarea name="details" placeholder="Product details / material / quantity" rows="4" style="grid-column:1/-1"></textarea>
+  <section id="rfq" aria-labelledby="rfq-h2">
+    <h2 id="rfq-h2">Request a Quote</h2>
+    <form action="https://formspree.io/f/your-id" method="POST">
+      <label>Don’t fill this out: <input name="_gotcha" style="display:none" tabindex="-1" autocomplete="off"></label>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:12px 0">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="tel" name="phone" placeholder="Phone">
+        <input type="text" name="company" placeholder="Company">
       </div>
-      <button class="btn" style="margin-top:10px">Send RFQ</button>
+      <textarea name="message" rows="5" placeholder="Brief requirements (process, material, capacity, qty)"></textarea>
+      <div style="margin-top:10px">
+        <button class="btn" type="submit">Send RFQ</button>
+      </div>
     </form>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="contact">
-    <h2>Contact Us</h2>
+  <!-- CONTACT -->
+  <section id="contact" aria-labelledby="contact-h2">
+    <h2 id="contact-h2">Contact Us</h2>
     <p><strong>Address:</strong> D-20, Sector-7, Noida, UP, India</p>
-    <p><strong>Email:</strong> <a href="mailto:tsmplastics@yahoo.co.in">tsmplastics@yahoo.co.in</a></p>
+    <p><strong>Email:</strong> tsmplastics@yahoo.co.in</p>
     <p><strong>Phone:</strong> S.K. Sharma (+91 99100 88187), Lakshay Sharma (+91 99587 03900)</p>
   </section>
 
-  <!-- CTA band -->
-  <section class="cta-band" aria-label="Quick actions">
-    <div class="cta-inner">
-      <strong>Need a quote or sample run?</strong>
-      <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <a href="tel:+919910088187" class="btn">Call S.K. Sharma</a>
-        <a href="https://wa.me/919958703900?text=Hi%20TSM%20Plastics%2C%20I’d%20like%20a%20quote." class="btn">WhatsApp</a>
-        <a href="mailto:tsmplastics@yahoo.co.in?subject=RFQ%20TSM%20Plastics" class="btn">Email RFQ</a>
-      </div>
-    </div>
-  </section>
-
   <footer class="footer">
-    <p>© 2025 TSM Plastics. All rights reserved.</p>
+    © 2025 TSM Plastics. All rights reserved.
   </footer>
 
-  <button id="toTop" aria-label="Back to top">↑</button>
+  <button id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
 
   <script>
     /* Industries modal */
@@ -313,172 +214,44 @@
       document.getElementById('modalDesc').innerText = desc;
       document.getElementById('modal').style.display = 'block';
     }
-    function closeModal() { document.getElementById('modal').style.display = 'none'; }
+    document.getElementById('modalClose').addEventListener('click', ()=> {
+      document.getElementById('modal').style.display = 'none';
+    });
+    window.addEventListener('keydown', e => {
+      if(e.key === 'Escape') document.getElementById('modal').style.display = 'none';
+    });
 
-    /* ===== Clients marquee: interactive, centered Tops, auto-scroll ===== */
+    /* Clients marquee: center TOPS and auto-scroll */
     (function(){
       const scroller = document.getElementById('logoScroll');
       if(!scroller) return;
 
-      // Pause/resume helpers
-      let isDown = false, startX = 0, scrollLeft = 0, paused = false, rafId = null, speed = 0.4;
-
-      const pause = () => { paused = true; if(rafId) cancelAnimationFrame(rafId); };
-      const resume = () => { paused = false; tick(); };
-
-      // Auto-scroll loop using scrollLeft for smooth, controllable marquee
+      let isDown=false,startX=0,scrollLeft=0,paused=false,rafId=null,speed=0.4;
+      const pause=()=>{paused=true;if(rafId) cancelAnimationFrame(rafId);};
+      const resume=()=>{paused=false;tick();};
       function tick(){
         if(paused) return;
         scroller.scrollLeft += speed;
-        // loop: if near end, jump back to start half
         if(scroller.scrollLeft >= scroller.scrollWidth - scroller.clientWidth - 2){
           scroller.scrollLeft = scroller.scrollWidth/2 - scroller.clientWidth/2;
         }
         rafId = requestAnimationFrame(tick);
       }
-
-      // Drag to scroll
-      scroller.addEventListener('mousedown', (e)=>{
-        isDown = true; scroller.classList.add('dragging');
-        startX = e.pageX - scroller.offsetLeft; scrollLeft = scroller.scrollLeft; pause();
-      });
-      scroller.addEventListener('mouseleave', ()=>{ isDown=false; scroller.classList.remove('dragging'); resume(); });
-      scroller.addEventListener('mouseup', ()=>{ isDown=false; scroller.classList.remove('dragging'); resume(); });
-      scroller.addEventListener('mousemove', (e)=>{
-        if(!isDown) return;
-        const x = e.pageX - scroller.offsetLeft;
-        const walk = (x - startX) * 1.2; // drag speed
-        scroller.scrollLeft = scrollLeft - walk;
-      });
-
-      // Touch support
-      let touchStartX = 0, touchStartLeft = 0;
-      scroller.addEventListener('touchstart',(e)=>{ pause(); touchStartX = e.touches[0].pageX; touchStartLeft = scroller.scrollLeft; }, {passive:true});
-      scroller.addEventListener('touchmove',(e)=>{ const dx = e.touches[0].pageX - touchStartX; scroller.scrollLeft = touchStartLeft - dx; }, {passive:true});
-      scroller.addEventListener('touchend',()=>{ resume(); });
-
-      // Pause on hover/focus for accessibility
-      scroller.addEventListener('mouseenter', pause);
-      scroller.addEventListener('mouseleave', resume);
-      scroller.querySelectorAll('a').forEach(a=>{
-        a.addEventListener('focus', pause);
-        a.addEventListener('blur', resume);
-      });
-
-      // Center Tops at load
-      function centerTops(){
-        const tops = scroller.querySelector('[data-tops]');
-        if(!tops) return;
-        const box = tops.querySelector('.logo-box');
-        const rect = box.getBoundingClientRect();
-        // Need position relative to scroller content
-        const itemLeft = box.offsetLeft; // within scroll container
-        const target = itemLeft - (scroller.clientWidth/2 - box.clientWidth/2);
-        scroller.scrollLeft = Math.max(0, target);
-      }
-
-      // After images layout
-      window.addEventListener('load', ()=>{ centerTops(); resume(); });
+      scroller.addEventListener('mousedown',(e)=>{isDown=true;startX=e.pageX-scroller.offsetLeft;scrollLeft=scroller.scrollLeft;pause();});
+      scroller.addEventListener('mouseleave',()=>{isDown=false;resume();});
+      scroller.addEventListener('mouseup',()=>{isDown=false;resume();});
+      scroller.addEventListener('mousemove',(e)=>{ if(!isDown) return; const x=e.pageX-scroller.offsetLeft; const walk=(x-startX)*1.2; scroller.scrollLeft = scrollLeft - walk;});
+      scroller.addEventListener('mouseenter',pause);
+      scroller.addEventListener('mouseleave',resume);
+      window.addEventListener('load', resume);
     })();
 
-    /* ===== Products: process-based filters ===== */
-    const products = [
-      /* Existing 20 (mapped roughly by process: bottles -> blow, rigid containers/caps/components -> injection) */
-      { file:"20250814_1231_Professional Product Shoot_remix_01k2knz17pefsv341gv2wectqx.png", title:"Product Shoot", caption:"Studio-lit product composition.", process:"injection" },
-      { file:"20250814_1243_Professional Product Shoot_remix_01k2kpp3kkejbadjvmvanyzceq.png", title:"Product Shoot", caption:"Side-lit setup highlighting edges.", process:"injection" },
-      { file:"20250814_1257_Clear Plastic Container_remix_01k2kqf5erf168mz6c5yvvb40e.png", title:"Clear Plastic Container", caption:"Rigid container; uniform wall.", process:"injection" },
-      { file:"20250814_1304_Red Plastic Container_remix_01k2kqx1x2e5rr551da3hdvzpf.png", title:"Red Plastic Container", caption:"Color-stable finish.", process:"injection" },
-      { file:"20250814_1307_Professional Product Shoot_remix_01k2kr2swxetb97gx2jhx1jj49.png", title:"Product Range", caption:"Multi-product frame.", process:"injection" },
-      { file:"20250814_1405_Red Bottle Focus_remix_01k2kvc6t4ebmayaeeefxtgyxq.png", title:"Red Bottle Focus", caption:"Neck finish details.", process:"blow" },
-      { file:"20250814_1411_Clear Plastic Container_remix_01k2kvpqxffkcbmv2yc2c08h09.png", title:"Clear Plastic Container", caption:"Surface quality under hard light.", process:"injection" },
-      { file:"20250814_1414_Professional Bottle Shoot_remix_01k2kvws60f4dsx1egftmze9jw.png", title:"Bottle Shoot", caption:"Body contours & labeling surface.", process:"blow" },
-      { file:"20250814_1421_Green Bottle Showcase_remix_01k2kw96pgf4nr69kmt23tjpzy.png", title:"Green Bottle Showcase", caption:"Tinted resin sample.", process:"blow" },
-      { file:"20250825_1541_Clear Plastic Container_remix_01k3gb8p2tf5vapq816ne5c1xq.png", title:"Clear Plastic Container", caption:"Edge clarity.", process:"injection" },
-      { file:"20250825_1541_Plastic Bottle Showcase_remix_01k3gb92apfngbjykz37qmsq99.png", title:"Plastic Bottle Showcase", caption:"Shoulder radius.", process:"blow" },
-      { file:"20250825_1544_Plastic Container Showcase_remix_01k3gbd42ffpbbbw7anmxdc9ec.png", title:"Plastic Container", caption:"Rigid, dry goods.", process:"injection" },
-      { file:"20250825_1547_Black Plastic Component_remix_01k3gbje5net69db7jbtdcv4qm.png", title:"Black Plastic Component", caption:"Engineering-grade part.", process:"injection" },
-      { file:"20250825_1550_Plastic Container Showcase_remix_01k3gbr5maeteb116dg079pv3w.png", title:"Container Showcase", caption:"Uniform shot weight.", process:"injection" },
-      { file:"20250825_1555_White Plastic Container_remix_01k3gc2f6xegwb4sq2rcqx9r0x.png", title:"White Plastic Container", caption:"Opaque resin.", process:"injection" },
-      { file:"20250825_1557_Transparent Plastic Container_remix_01k3gc5e28efe83gwq7ft2gta0.png", title:"Transparent Container", caption:"Clear PET-style container.", process:"injection" },
-      { file:"20250825_1604_Green Tray Display_remix_01k3gcjme7fsvsxmvy5wmtb709.png", title:"Green Tray Display", caption:"Shallow tray.", process:"injection" },
-      { file:"20250825_1604_Sleek Product Display_remix_01k3gchxahfnxvg7fpr02hs99j.png", title:"Sleek Product Display", caption:"Shelf-ready presentation.", process:"injection" },
-      { file:"20250825_1606_Professional Studio Shoot_remix_01k3gcpwxffhyv6jx3wvd4esb8.png", title:"Studio Shoot", caption:"Hero angle for catalog.", process:"injection" },
-      { file:"20250825_1607_Red Plastic Container_remix_01k3gcqvs7eqnv6tdny4ehpt9s.png", title:"Red Plastic Container", caption:"SKU color variant.", process:"injection" },
-
-      /* New 7 images you sent (mapped to Injection unless specified) */
-      { file:"20250825_1744_Professional Product Shoot_remix_01k3gj96mzfdzt48svp6w366nj.png", title:"Product Shoot", caption:"Catalog composition.", process:"injection" },
-      { file:"20250825_1745_Red Cap Close-Up_remix_01k3gjbq73ew2a62t29zyygg3g.png", title:"Red Flip-top Cap", caption:"Hinge detail.", process:"injection" },
-      { file:"20250825_1748_Professional Product Shoot_remix_01k3gjh5dve0qsw190mj0n10q0.png", title:"Product Shoot", caption:"Studio-lit shot.", process:"injection" },
-      { file:"20250825_1756_Professional Product Display_remix_01k3gjzs2me98bprg29t72d4n9.png", title:"Product Display", caption:"Mixed components.", process:"injection" },
-      { file:"20250825_1759_Professional Product Shoot_remix_01k3gk4x73eb1s45qb09a17haq.png", title:"Product Shoot", caption:"Detail focus.", process:"injection" },
-      { file:"20250825_1802_Red Tray Showcase_remix_01k3gka3t8fcw8b9gz82sfy84b.png", title:"Red Tray Showcase", caption:"Utility tray.", process:"injection" },
-      { file:"20250825_1811_Professional Product Caps_remix_01k3gkvn51exr8hsshty32zvmg.png", title:"Branded Caps", caption:"Food caps and lids.", process:"injection" }
-    ];
-
-    const grid = document.getElementById('productGrid');
-    function renderProducts(proc='all'){
-      if(!grid) return;
-      grid.innerHTML = products.map((p,i)=>{
-        const visible = (proc==='all' || p.process===proc);
-        return `
-          <article class="product-card" data-idx="${i}" data-proc="${p.process}" style="${visible?'':'display:none'}" onclick="openProduct(${i})">
-            <img loading="lazy" src="${p.file}" alt="${p.title}">
-            <div class="product-meta">
-              <h4>${p.title}</h4>
-              <p>${p.caption}</p>
-            </div>
-          </article>
-        `;
-      }).join('');
-    }
-    renderProducts();
-
-    // Filter behavior
-    const chips = document.querySelectorAll('#procFilters .chip');
-    chips.forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        chips.forEach(b=>b.classList.remove('active'));
-        btn.classList.add('active');
-        renderProducts(btn.dataset.proc);
-      });
-    });
-
-    /* Product lightbox */
-    const pm = {
-      root: document.getElementById('productModal'),
-      img: document.getElementById('pmImg'),
-      title: document.getElementById('pmTitle'),
-      caption: document.getElementById('pmCaption'),
-      close: document.getElementById('pmClose')
-    };
-    function openProduct(idx){
-      const p = products[idx];
-      pm.img.src = p.file;
-      pm.img.alt = p.title;
-      pm.title.textContent = p.title;
-      pm.caption.textContent = p.caption;
-      pm.root.style.display = 'block';
-      pm.root.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-      pm.close.focus();
-    }
-    window.openProduct = openProduct;
-    function closeProduct(){
-      pm.root.style.display = 'none';
-      pm.root.setAttribute('aria-hidden', 'true');
-      pm.img.src = '';
-      document.body.style.overflow = '';
-    }
-    pm.close.addEventListener('click', closeProduct);
-    pm.root.addEventListener('click', e=>{ if(e.target===pm.root) closeProduct(); });
-    pm.root.addEventListener('keydown', e=>{ if(e.key==='Escape') closeProduct(); });
-
-    /* Back to top */
-    const toTop = document.getElementById('toTop');
-    window.addEventListener('scroll', ()=>{ toTop.style.display = window.scrollY > 800 ? 'block' : 'none'; });
-    toTop.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+    /* Back to top visibility */
+    (function(){
+      const btn = document.getElementById('toTop');
+      window.addEventListener('scroll',()=>{ btn.style.display = window.scrollY > 600 ? 'block' : 'none'; });
+    })();
   </script>
 </body>
 </html>
-
 
