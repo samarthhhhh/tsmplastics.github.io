@@ -51,9 +51,11 @@
 
     /* Industries */
     .industries .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem}
-    .industry-box{background:#f4f4f4;border-radius:8px;padding:1rem;cursor:pointer;transition:transform .25s ease, background .25s ease}
+    .industry-box{background:#f4f4f4;border-radius:12px;padding:0;cursor:pointer;transition:transform .25s ease, background .25s ease;overflow:hidden;box-shadow:var(--shadow)}
     .industry-box:hover{transform:translateY(-2px);background:#ececec}
-    .industry-box h3{margin:.25rem 0 .25rem}
+    .industry-thumb{aspect-ratio:16/9;background:#e9eef3;display:block;width:100%;object-fit:cover}
+    .industry-body{padding:14px}
+    .industry-box h3{margin:.25rem 0 .35rem}
     .industry-box p{margin:0;color:var(--muted);font-size:.95rem}
 
     /* Modal */
@@ -164,24 +166,55 @@
   <section id="industries" class="industries" aria-labelledby="industries-h2">
     <h2 id="industries-h2">Industries We Serve</h2>
     <p>Click on a category below to see representative product images and details.</p>
-    <div class="grid">
-      <article class="industry-box" tabindex="0" onclick="openModal('FMCG','fmcg.jpg','Food, cosmetics, skincare, dental & hygiene components')">
-        <h3>FMCG</h3><p>Food, cosmetics, skincare, dental & hygiene components</p>
+
+    <div class="grid" id="industryGrid">
+      <!-- Each card shows a thumbnail and opens modal with the same image -->
+      <article class="industry-box" tabindex="0" data-base="fmcg" onclick="openModal('FMCG', resolveImgSrc('fmcg'), 'Food, cosmetics, skincare, dental & hygiene components')">
+        <img class="industry-thumb" alt="FMCG sample" loading="lazy" src="" data-src-base="fmcg">
+        <div class="industry-body">
+          <h3>FMCG</h3>
+          <p>Food, cosmetics, skincare, dental & hygiene components</p>
+        </div>
       </article>
-      <article class="industry-box" tabindex="0" onclick="openModal('Automotive','automotive.jpg','Custom lightweight parts for diverse automotive needs')">
-        <h3>Automotive</h3><p>Custom lightweight parts for diverse automotive needs</p>
+
+      <article class="industry-box" tabindex="0" data-base="automotive" onclick="openModal('Automotive', resolveImgSrc('automotive'), 'Custom lightweight parts for diverse automotive needs')">
+        <img class="industry-thumb" alt="Automotive sample" loading="lazy" src="" data-src-base="automotive">
+        <div class="industry-body">
+          <h3>Automotive</h3>
+          <p>Custom lightweight parts for diverse automotive needs</p>
+        </div>
       </article>
-      <article class="industry-box" tabindex="0" onclick="openModal('Engineering','engineering.jpg','High-precision components for industrial engineering')">
-        <h3>Engineering</h3><p>High-precision components for industrial engineering</p>
+
+      <article class="industry-box" tabindex="0" data-base="engineering" onclick="openModal('Engineering', resolveImgSrc('engineering'), 'High-precision components for industrial engineering')">
+        <img class="industry-thumb" alt="Engineering sample" loading="lazy" src="" data-src-base="engineering">
+        <div class="industry-body">
+          <h3>Engineering</h3>
+          <p>High-precision components for industrial engineering</p>
+        </div>
       </article>
-      <article class="industry-box" tabindex="0" onclick="openModal('Tools & Equipment','tools.jpg','Household tools & specialized equipment plastics')">
-        <h3>Tools & Equipment</h3><p>Household tools & specialized equipment plastics</p>
+
+      <article class="industry-box" tabindex="0" data-base="tools" onclick="openModal('Tools & Equipment', resolveImgSrc('tools'), 'Household tools & specialized equipment plastics')">
+        <img class="industry-thumb" alt="Tools & Equipment sample" loading="lazy" src="" data-src-base="tools">
+        <div class="industry-body">
+          <h3>Tools & Equipment</h3>
+          <p>Household tools & specialized equipment plastics</p>
+        </div>
       </article>
-      <article class="industry-box" tabindex="0" onclick="openModal('Medical','medical.jpg','Reliable, clean plastic solutions for healthcare')">
-        <h3>Medical</h3><p>Reliable, clean plastic solutions for healthcare</p>
+
+      <article class="industry-box" tabindex="0" data-base="medical" onclick="openModal('Medical', resolveImgSrc('medical'), 'Reliable, clean plastic solutions for healthcare')">
+        <img class="industry-thumb" alt="Medical sample" loading="lazy" src="" data-src-base="medical">
+        <div class="industry-body">
+          <h3>Medical</h3>
+          <p>Reliable, clean plastic solutions for healthcare</p>
+        </div>
       </article>
-      <article class="industry-box" tabindex="0" onclick="openModal('Packaging','packaging.jpg','Dry, liquid, bulk containers, caps, lids and more')">
-        <h3>Packaging</h3><p>Dry, liquid, bulk containers, caps, lids and more</p>
+
+      <article class="industry-box" tabindex="0" data-base="packaging" onclick="openModal('Packaging', resolveImgSrc('packaging'), 'Dry, liquid, bulk containers, caps, lids and more')">
+        <img class="industry-thumb" alt="Packaging sample" loading="lazy" src="" data-src-base="packaging">
+        <div class="industry-body">
+          <h3>Packaging</h3>
+          <p>Dry, liquid, bulk containers, caps, lids and more</p>
+        </div>
       </article>
     </div>
   </section>
@@ -203,12 +236,12 @@
       <div class="logo-scroll" id="logoScroll" tabindex="0" aria-label="Client logos carousel">
         <a class="logo-link" href="#" aria-label="MasterChow"><div class="logo-box"><img src="masterchow_logo.jpg" alt="MasterChow"></div></a>
         <a class="logo-link" href="#" aria-label="Triveni Almirah"><div class="logo-box"><img src="triveni.png" alt="Triveni Almirah"></div></a>
-        <a class="logo-link" href="#" aria-label="Tops" data-tops><div class="logo-box"><img src="topslogo.png" alt="Tops"></div></a
         <a class="logo-link" href="#" aria-label="Romsons"><div class="logo-box"><img src="romsons.png" alt="Romsons"></div></a>
         <a class="logo-link" href="#" aria-label="Baidyanath"><div class="logo-box"><img src="Baidyanath_logo.png" alt="Baidyanath"></div></a>
         <a class="logo-link" href="#" aria-label="Patanjali"><div class="logo-box"><img src="patanjalilogo.png" alt="Patanjali"></div></a>
         <a class="logo-link" href="#" aria-label="Dabur"><div class="logo-box"><img src="dabur.png" alt="Dabur"></div></a>
         <a class="logo-link" href="#" aria-label="Indian Railways"><div class="logo-box"><img src="indianrailways.png" alt="Indian Railways"></div></a>
+        <a class="logo-link" href="#" aria-label="Tops" data-tops><div class="logo-box"><img src="topslogo.png" alt="Tops"></div></a>
       </div>
     </div>
   </section>
@@ -260,7 +293,7 @@
       </div>
 
       <div class="map-wrap">
-        <!-- Official business embed you provided -->
+        <!-- Your official business embed -->
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.124788429108!2d77.31546417575582!3d28.596032975684597!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce4f111a2d51b%3A0x166a23034cff3885!2sTSM%20Plastics!5e0!3m2!1sen!2sin!4v1756201877559!5m2!1sen!2sin"
           style="border:0;" allowfullscreen="" loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -278,11 +311,37 @@
   <button id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
 
   <script>
+    /* Helper: try multiple common extensions for an image base name */
+    const IMG_EXTS = ['.jpg', '.jpeg', '.JPG', '.JPEG', '.png', '.webp'];
+    function resolveImgSrc(base){
+      // returns the first candidate; thumbnails below will progressively test and fix if needed
+      return base + IMG_EXTS[0];
+    }
+
+    /* Lazy set thumbnails and auto-correct extension if the first fails */
+    function initIndustryThumbs(){
+      document.querySelectorAll('.industry-thumb').forEach(img=>{
+        const base = img.getAttribute('data-src-base');
+        if(!base) return;
+        let i = 0;
+        const trySet = () => {
+          if(i >= IMG_EXTS.length){
+            // give up: keep empty, or set a neutral placeholder
+            img.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450"><rect width="100%" height="100%" fill="%23e9eef3"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="20" fill="%2399a3ad">Image not found</text></svg>';
+            return;
+          }
+          img.src = base + IMG_EXTS[i];
+        };
+        img.addEventListener('error', ()=>{ i++; trySet(); }, { once:false });
+        trySet();
+      });
+    }
+
     /* Modal */
-    function openModal(title, img, desc) {
+    function openModal(title, imgSrc, desc) {
       document.getElementById('modalTitle').innerText = title;
       const mimg = document.getElementById('modalImg');
-      mimg.src = img; mimg.alt = title;
+      mimg.src = imgSrc; mimg.alt = title;
       document.getElementById('modalDesc').innerText = desc;
       document.getElementById('modal').style.display = 'block';
     }
@@ -346,6 +405,13 @@
       if(v.readyState >= 2) tryPlay();
       else v.addEventListener('canplay', tryPlay, {once:true});
     })();
+
+    /* Kick off thumbnails after DOM is ready */
+    if(document.readyState === 'loading'){
+      document.addEventListener('DOMContentLoaded', initIndustryThumbs);
+    } else {
+      initIndustryThumbs();
+    }
   </script>
 </body>
 </html>
