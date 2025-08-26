@@ -162,62 +162,38 @@
     <p>Our state-of-the-art facility consistently delivers high-quality, cost-effective, and industry-specific plastic solutions. Whether you’re a growing brand or an established name, we help you scale with reliable, innovative plastics.</p>
   </section>
 
-  <!-- INDUSTRIES -->
-  <section id="industries" class="industries" aria-labelledby="industries-h2">
-    <h2 id="industries-h2">Industries We Serve</h2>
+    <!-- INDUSTRIES -->
+  <section id="industries" class="industries">
+    <h2>Industries We Serve</h2>
     <p>Click on a category below to see representative product images and details.</p>
-
-    <div class="grid" id="industryGrid">
-      <!-- Each card shows a thumbnail and opens modal with the same image -->
-      <article class="industry-box" tabindex="0" data-base="fmcg" onclick="openModal('FMCG', resolveImgSrc('fmcg'), 'Food, cosmetics, skincare, dental & hygiene components')">
-        <img class="industry-thumb" alt="FMCG sample" loading="lazy" src="" data-src-base="fmcg">
-        <div class="industry-body">
-          <h3>FMCG</h3>
-          <p>Food, cosmetics, skincare, dental & hygiene components</p>
-        </div>
+    <div class="grid">
+      <article class="industry-box" onclick="openModal('FMCG', this.querySelector('img').src, 'Food, cosmetics, skincare, dental & hygiene components')">
+        <img class="industry-thumb" src="FMCG.png" alt="FMCG sample">
+        <div class="industry-body"><h3>FMCG</h3><p>Food, cosmetics, skincare, dental & hygiene components</p></div>
       </article>
-
-      <article class="industry-box" tabindex="0" data-base="automotive" onclick="openModal('Automotive', resolveImgSrc('automotive'), 'Custom lightweight parts for diverse automotive needs')">
-        <img class="industry-thumb" alt="Automotive sample" loading="lazy" src="" data-src-base="automotive">
-        <div class="industry-body">
-          <h3>Automotive</h3>
-          <p>Custom lightweight parts for diverse automotive needs</p>
-        </div>
+      <article class="industry-box" onclick="openModal('Automotive', this.querySelector('img').src, 'Custom lightweight parts for diverse automotive needs')">
+        <img class="industry-thumb" src="auto.png" alt="Automotive sample">
+        <div class="industry-body"><h3>Automotive</h3><p>Custom lightweight parts for diverse automotive needs</p></div>
       </article>
-
-      <article class="industry-box" tabindex="0" data-base="engineering" onclick="openModal('Engineering', resolveImgSrc('engineering'), 'High-precision components for industrial engineering')">
-        <img class="industry-thumb" alt="Engineering sample" loading="lazy" src="" data-src-base="engineering">
-        <div class="industry-body">
-          <h3>Engineering</h3>
-          <p>High-precision components for industrial engineering</p>
-        </div>
+      <article class="industry-box" onclick="openModal('Engineering', this.querySelector('img').src, 'High-precision components for industrial engineering')">
+        <img class="industry-thumb" src="engineering.jpg" alt="Engineering sample">
+        <div class="industry-body"><h3>Engineering</h3><p>High-precision components for industrial engineering</p></div>
       </article>
-
-      <article class="industry-box" tabindex="0" data-base="tools" onclick="openModal('Tools & Equipment', resolveImgSrc('tools'), 'Household tools & specialized equipment plastics')">
-        <img class="industry-thumb" alt="Tools & Equipment sample" loading="lazy" src="" data-src-base="tools">
-        <div class="industry-body">
-          <h3>Tools & Equipment</h3>
-          <p>Household tools & specialized equipment plastics</p>
-        </div>
+      <article class="industry-box" onclick="openModal('Tools & Equipment', this.querySelector('img').src, 'Household tools & specialized equipment plastics')">
+        <img class="industry-thumb" src="tools.png" alt="Tools & Equipment sample">
+        <div class="industry-body"><h3>Tools & Equipment</h3><p>Household tools & specialized equipment plastics</p></div>
       </article>
-
-      <article class="industry-box" tabindex="0" data-base="medical" onclick="openModal('Medical', resolveImgSrc('medical'), 'Reliable, clean plastic solutions for healthcare')">
-        <img class="industry-thumb" alt="Medical sample" loading="lazy" src="" data-src-base="medical">
-        <div class="industry-body">
-          <h3>Medical</h3>
-          <p>Reliable, clean plastic solutions for healthcare</p>
-        </div>
+      <article class="industry-box" onclick="openModal('Medical', this.querySelector('img').src, 'Reliable, clean plastic solutions for healthcare')">
+        <img class="industry-thumb" src="medical.png" alt="Medical sample">
+        <div class="industry-body"><h3>Medical</h3><p>Reliable, clean plastic solutions for healthcare</p></div>
       </article>
-
-      <article class="industry-box" tabindex="0" data-base="packaging" onclick="openModal('Packaging', resolveImgSrc('packaging'), 'Dry, liquid, bulk containers, caps, lids and more')">
-        <img class="industry-thumb" alt="Packaging sample" loading="lazy" src="" data-src-base="packaging">
-        <div class="industry-body">
-          <h3>Packaging</h3>
-          <p>Dry, liquid, bulk containers, caps, lids and more</p>
-        </div>
+      <article class="industry-box" onclick="openModal('Packaging', this.querySelector('img').src, 'Dry, liquid, bulk containers, caps, lids and more')">
+        <img class="industry-thumb" src="packaging.png" alt="Packaging sample">
+        <div class="industry-body"><h3>Packaging</h3><p>Dry, liquid, bulk containers, caps, lids and more</p></div>
       </article>
     </div>
   </section>
+
 
   <!-- Modal -->
   <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" style="display:none">
