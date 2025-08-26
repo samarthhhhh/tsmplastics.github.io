@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products | TSM Plastics</title>
+  <link rel="stylesheet" href="../assets/css/products.css">
+  <!-- You can include additional global stylesheets here if needed -->
+</head>
+<body>
+  <!-- Navigation copied from main site -->
+  <nav class="site-nav" aria-label="Primary">
+    <div class="nav-inner">
+      <img src="../logo.jpeg" alt="TSM Plastics">
+      <a class="nav-link" href="../#about">About</a>
+      <a class="nav-link" href="../#industries">Industries</a>
+      <a class="nav-link" href="../#products">Products</a>
+      <a class="nav-link" href="../#clients">Clients</a>
+      <a class="nav-link" href="../#contact">Contact</a>
+      <a class="nav-cta" href="../#rfq">Get a quote</a>
+    </div>
+  </nav>
+
+  <main class="products-container">
+    <h1 class="products-header">Products</h1>
+
+    <!-- Search bar -->
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search products...">
+    </div>
+
+    <!-- Category tabs -->
+    <div class="tab-list">
+      <button class="active" data-category="all">All</button>
+      <button data-category="injection-moulding">Injection Moulding</button>
+      <button data-category="blow-moulding">Blow Moulding</button>
+      <button data-category="pet-stretch">PET Stretch</button>
+    </div>
+
+    <!-- Products grid -->
+    <div id="productsGrid" class="products-grid"></div>
+  </main>
+
+  <script src="../assets/js/products.js"></script>
+</body>
+</html>
