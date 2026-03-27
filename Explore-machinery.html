@@ -1,1 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Our Machinery | TSM Plastics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <style>
+    :root{
+      --brand:#0a4d8c;
+      --ink:#222;
+      --muted:#666;
+      --bg:#fff;
+      --radius:10px;
+      --maxw:1100px;
+      --shadow:0 1px 6px rgba(0,0,0,.08);
+    }
+
+    body{
+      margin:0;
+      font-family:Arial,Helvetica,sans-serif;
+      color:var(--ink);
+      background:#fff;
+    }
+
+    /* NAV (same as your main site) */
+    nav.site-nav{
+      position:sticky;
+      top:0;
+      z-index:10001;
+      background:var(--brand);
+      color:#fff;
+    }
+
+    .nav-inner{
+      max-width:var(--maxw);
+      margin:auto;
+      display:flex;
+      gap:16px;
+      align-items:center;
+      padding:.6rem 1rem;
+    }
+
+    .nav-inner img{
+      height:36px;
+      border-radius:6px;
+    }
+
+    .nav-link{
+      color:#fff;
+      text-decoration:none;
+      padding:.35rem .5rem;
+      border-radius:8px;
+    }
+
+    .nav-link:hover{
+      background:rgba(255,255,255,.12);
+    }
+
+    /* HERO */
+    .hero{
+      background:#0a4d8c;
+      color:#fff;
+      text-align:center;
+      padding:80px 20px;
+    }
+
+    .hero h1{
+      margin:0;
+      font-size:2.2rem;
+    }
+
+    .hero p{
+      margin-top:10px;
+      color:#ddd;
+    }
+
+    /* SECTION */
+    section{
+      max-width:var(--maxw);
+      margin:auto;
+      padding:3rem 1.5rem;
+    }
+
+    h2{
+      color:var(--brand);
+      margin-bottom:20px;
+      border-bottom:2px solid var(--brand);
+      display:inline-block;
+      padding-bottom:6px;
+    }
+
+    /* GRID */
+    .machine-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:20px;
+    }
+
+    .machine-card{
+      background:#f4f7fb;
+      padding:25px;
+      border-radius:12px;
+      box-shadow:var(--shadow);
+      transition:0.2s ease;
+    }
+
+    .machine-card:hover{
+      transform:translateY(-5px);
+    }
+
+    .machine-card h3{
+      margin-top:0;
+      color:#0a4d8c;
+    }
+
+    .highlight{
+      display:inline-block;
+      margin-top:10px;
+      padding:6px 12px;
+      background:#0a4d8c;
+      color:#fff;
+      border-radius:20px;
+      font-size:0.85rem;
+    }
+
+    /* CTA */
+    .cta{
+      background:#eef6ff;
+      text-align:center;
+      padding:50px 20px;
+    }
+
+    .cta a{
+      display:inline-block;
+      margin-top:10px;
+      background:#0a4d8c;
+      color:#fff;
+      padding:10px 20px;
+      border-radius:25px;
+      text-decoration:none;
+    }
+
+    footer{
+      background:#0a4d8c;
+      color:#fff;
+      text-align:center;
+      padding:1.2rem;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/"><img src="logo.jpeg" alt="TSM Plastics"></a>
+    <a href="/" class="nav-link">Home</a>
+    <a href="/our-products.html" class="nav-link">Our Products</a>
+    <a href="/Explore-machinery.html" class="nav-link">Our Machinery</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Our Machinery</h1>
+  <p>Built for precision, scale, and consistent production</p>
+</div>
+
+<!-- MACHINERY -->
+<section>
+  <h2>Manufacturing Capabilities</h2>
+
+  <div class="machine-grid">
+
+    <div class="machine-card">
+      <h3>Injection Moulding Machines</h3>
+      <p><strong>12 Machines</strong></p>
+      <p>100 Ton to 240 Ton capacity</p>
+      <p>Ideal for high-precision and complex plastic components.</p>
+      <span class="highlight">High Precision</span>
+    </div>
+
+    <div class="machine-card">
+      <h3>Blow Moulding Machines</h3>
+      <p><strong>8 Machines</strong></p>
+      <p>0.5 L to 5 L capacity</p>
+      <p>Suitable for bottles and durable plastic containers.</p>
+      <span class="highlight">Container Production</span>
+    </div>
+
+    <div class="machine-card">
+      <h3>PET Stretch Blow Moulding</h3>
+      <p><strong>4 Machines</strong></p>
+      <p>0.5 L to 5 L capacity</p>
+      <p>High-speed production of PET bottles with clarity and strength.</p>
+      <span class="highlight">Food Grade Ready</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>Have a requirement?</h2>
+  <p>Let our machinery handle your production needs.</p>
+  <a href="/#rfq">Request a Quote</a>
+</div>
+
+<footer>
+  © 2025 TSM Plastics. All rights reserved.
+</footer>
+
+</body>
+</html>
