@@ -1,139 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Our Products | TSM Plastics</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Our Products | TSM Plastics</title>
 
-<style>
-:root{
-  --brand:#0a4d8c; --ink:#222; --bg:#f7f7f7;
-  --radius:12px; --maxw:1100px;
-  --shadow:0 2px 8px rgba(0,0,0,.06);
-}
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial;background:var(--bg)}
+  <style>
+    :root{
+      --brand:#0a4d8c; --ink:#222; --muted:#666; --bg:#f7f7f7;
+      --radius:12px; --maxw:1100px;
+      --shadow:0 2px 8px rgba(0,0,0,.06);
+    }
 
-nav{
-  background:var(--brand);
-  text-align:center;
-  padding:.7rem;
-}
-nav a{color:#fff;text-decoration:none;font-weight:bold}
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Arial,Helvetica,sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+    }
 
-main{max-width:var(--maxw);margin:auto;padding:2rem 1rem}
-h1,h2{color:var(--brand)}
+    /* NAV */
+    nav{
+      background:var(--brand);
+      padding:.7rem;
+      text-align:center;
+      position:sticky;
+      top:0;
+    }
 
-.product-list{
-  list-style:none;
-  padding:0;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:1rem;
-}
+    nav a{
+      color:#fff;
+      text-decoration:none;
+      font-weight:bold;
+    }
 
-.product-list li{
-  background:#fff;
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  overflow:hidden;
-}
+    /* MAIN */
+    main{
+      max-width:var(--maxw);
+      margin:auto;
+      padding:2rem 1rem;
+    }
 
-.thumb-wrap{
-  aspect-ratio:4/3;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:10px;
-}
+    h1,h2{color:var(--brand)}
 
-.thumb{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-}
+    .product-section{margin-bottom:3rem}
 
-.product-list p{
-  padding:.7rem;
-  margin:0;
-}
+    .product-list{
+      list-style:none;
+      padding:0;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+      gap:1.2rem;
+    }
 
-.lightbox{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.8);
-  display:none;
-  align-items:center;
-  justify-content:center;
-}
+    .product-list li{
+      background:#fff;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      transition:.2s;
+    }
 
-.lightbox[open]{display:flex}
+    .product-list li:hover{
+      transform:translateY(-3px);
+    }
 
-.lightbox img{
-  max-width:90%;
-  max-height:80vh;
-}
+    .thumb-wrap{
+      aspect-ratio:4/3;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px;
+      background:#fff;
+    }
 
-.close{
-  position:absolute;
-  top:20px;
-  right:20px;
-  font-size:24px;
-  background:#fff;
-  border:none;
-  border-radius:50%;
-  width:40px;
-  height:40px;
-}
-</style>
+    .thumb{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+    }
+
+    .product-list p{
+      margin:0;
+      padding:.8rem;
+      border-top:1px solid #eee;
+    }
+
+    /* LIGHTBOX */
+    dialog{
+      border:none;
+      background:rgba(0,0,0,.9);
+      width:100vw;
+      height:100vh;
+    }
+
+    dialog img{
+      max-width:90%;
+      max-height:80vh;
+      display:block;
+      margin:auto;
+    }
+
+    .close{
+      position:absolute;
+      top:20px;
+      right:20px;
+      width:40px;
+      height:40px;
+      border:none;
+      border-radius:50%;
+      background:#fff;
+      font-size:20px;
+      cursor:pointer;
+    }
+
+    footer{
+      background:var(--brand);
+      color:#fff;
+      text-align:center;
+      padding:1rem;
+      margin-top:2rem;
+    }
+  </style>
 </head>
 
 <body>
 
+<!-- NAV (only Home now, as requested) -->
 <nav>
   <a href="/">Home</a>
 </nav>
 
 <main>
-<h1>Our Products</h1>
 
-<section>
+<h1>Our Products</h1>
+<p>Explore our range. Click any product to enlarge.</p>
+
+<!-- BLOW MOULDING -->
+<section class="product-section">
 <h2>Blow Moulding</h2>
 
 <ul class="product-list">
 
 <li>
 <a href="20250814_1231_Professional Product Shoot_remix_01k2knz17pefsv341gv2wectqx.png" class="prod" data-caption="Yellow handled jerrycan">
-<div class="thumb-wrap">
-<img class="thumb" src="20250814_1231_Professional Product Shoot_remix_01k2knz17pefsv341gv2wectqx.png">
-</div>
+<div class="thumb-wrap"><img class="thumb" src="20250814_1231_Professional Product Shoot_remix_01k2knz17pefsv341gv2wectqx.png"></div>
 </a>
 <p>Yellow handled jerrycan</p>
 </li>
 
 <li>
 <a href="20250814_1304_Red Plastic Container_remix_01k2kqx1x2e5rr551da3hdvzpf.png" class="prod" data-caption="Transparent jerrycan">
-<div class="thumb-wrap">
-<img class="thumb" src="20250814_1304_Red Plastic Container_remix_01k2kqx1x2e5rr551da3hdvzpf.png">
-</div>
+<div class="thumb-wrap"><img class="thumb" src="20250814_1304_Red Plastic Container_remix_01k2kqx1x2e5rr551da3hdvzpf.png"></div>
 </a>
 <p>Transparent jerrycan</p>
 </li>
 
 <li>
 <a href="20250814_1307_Professional Product Shoot_remix_01k2kr2swxetb97gx2jhx1jj49.png" class="prod" data-caption="Red jerrycan">
-<div class="thumb-wrap">
-<img class="thumb" src="20250814_1307_Professional Product Shoot_remix_01k2kr2swxetb97gx2jhx1jj49.png">
-</div>
+<div class="thumb-wrap"><img class="thumb" src="20250814_1307_Professional Product Shoot_remix_01k2kr2swxetb97gx2jhx1jj49.png"></div>
 </a>
 <p>Red jerrycan</p>
 </li>
 
 <li>
-<a href="431f8180-2db3-4e5a-a78c-29700554fa66.png" class="prod" data-caption="Yellow plastic bat">
-<div class="thumb-wrap">
-<img class="thumb" src="431f8180-2db3-4e5a-a78c-29700554fa66.png">
-</div>
+<a href="20250814_1405_Red Bottle Focus_remix_01k2kvc6t4ebmayaeeefxtgyxq.png" class="prod">
+<div class="thumb-wrap"><img class="thumb" src="20250814_1405_Red Bottle Focus_remix_01k2kvc6t4ebmayaeeefxtgyxq.png"></div>
+</a>
+<p>Red cylindrical bottle</p>
+</li>
+
+<li>
+<a href="20250814_1414_Professional Bottle Shoot_remix_01k2kvws60f4dsx1egftmze9jw.png" class="prod">
+<div class="thumb-wrap"><img class="thumb" src="20250814_1414_Professional Bottle Shoot_remix_01k2kvws60f4dsx1egftmze9jw.png"></div>
+</a>
+<p>White milk-style bottle</p>
+</li>
+
+<li>
+<a href="20250814_1421_Green Bottle Showcase_remix_01k2kw96pgf4nr69kmt23tjpzy.png" class="prod">
+<div class="thumb-wrap"><img class="thumb" src="20250814_1421_Green Bottle Showcase_remix_01k2kw96pgf4nr69kmt23tjpzy.png"></div>
+</a>
+<p>Green rectangular bottle</p>
+</li>
+
+<li>
+<a href="20250825_1541_Clear Plastic Container_remix_01k3gb8p2tf5vapq816ne5c1xq.png" class="prod">
+<div class="thumb-wrap"><img class="thumb" src="20250825_1541_Clear Plastic Container_remix_01k3gb8p2tf5vapq816ne5c1xq.png"></div>
+</a>
+<p>Clear gallon jug</p>
+</li>
+
+<li>
+<a href="20250825_1544_Plastic Container Showcase_remix_01k3gbd42ffpbbbw7anmxdc9ec.png" class="prod">
+<div class="thumb-wrap"><img class="thumb" src="20250825_1544_Plastic Container Showcase_remix_01k3gbd42ffpbbbw7anmxdc9ec.png"></div>
+</a>
+<p>Purple short jar</p>
+</li>
+
+<li>
+<a href="431f8180-2db3-4e5a-a78c-29700554fa66.png" class="prod">
+<div class="thumb-wrap"><img class="thumb" src="431f8180-2db3-4e5a-a78c-29700554fa66.png"></div>
 </a>
 <p>Yellow plastic bat</p>
 </li>
@@ -141,165 +209,54 @@ h1,h2{color:var(--brand)}
 </ul>
 </section>
 
-</main>
-
-<dialog class="lightbox" id="lb">
-<button class="close" onclick="lb.close()">×</button>
-<img id="img">
-</dialog>
-
-<script>
-const lb=document.getElementById('lb');
-const img=document.getElementById('img');
-
-document.querySelectorAll('.prod').forEach(a=>{
-  a.onclick=e=>{
-    e.preventDefault();
-    img.src=a.href;
-    lb.showModal();
-  }
-});
-</script>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Our Products | TSM Plastics</title>
-
-<style>
-:root{
-  --brand:#0a4d8c; --ink:#222; --bg:#f7f7f7;
-  --radius:12px; --maxw:1100px;
-  --shadow:0 2px 8px rgba(0,0,0,.06);
-}
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial;background:var(--bg)}
-
-nav{
-  background:var(--brand);
-  text-align:center;
-  padding:.7rem;
-}
-nav a{color:#fff;text-decoration:none;font-weight:bold}
-
-main{max-width:var(--maxw);margin:auto;padding:2rem 1rem}
-h1,h2{color:var(--brand)}
-
-.product-list{
-  list-style:none;
-  padding:0;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:1rem;
-}
-
-.product-list li{
-  background:#fff;
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  overflow:hidden;
-}
-
-.thumb-wrap{
-  aspect-ratio:4/3;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:10px;
-}
-
-.thumb{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-}
-
-.product-list p{
-  padding:.7rem;
-  margin:0;
-}
-
-.lightbox{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.8);
-  display:none;
-  align-items:center;
-  justify-content:center;
-}
-
-.lightbox[open]{display:flex}
-
-.lightbox img{
-  max-width:90%;
-  max-height:80vh;
-}
-
-.close{
-  position:absolute;
-  top:20px;
-  right:20px;
-  font-size:24px;
-  background:#fff;
-  border:none;
-  border-radius:50%;
-  width:40px;
-  height:40px;
-}
-</style>
-</head>
-
-<body>
-
-<nav>
-  <a href="/">Home</a>
-</nav>
-
-<main>
-<h1>Our Products</h1>
-
-<section>
-<h2>Blow Moulding</h2>
+<!-- PET -->
+<section class="product-section">
+<h2>PET Stretch Blow Moulding</h2>
 
 <ul class="product-list">
 
 <li>
-<a href="20250814_1231_Professional Product Shoot_remix_01k2knz17pefsv341gv2wectqx.png" class="prod" data-caption="Yellow handled jerrycan">
-<div class="thumb-wrap">
-<img class="thumb" src="20250814_1231_Professional Product Shoot_remix_01k2knz17pefsv341gv2wectqx.png">
-</div>
+<a href="20250814_1243_Professional Product Shoot_remix_01k2kpp3kkejbadjvmvanyzceq.png" class="prod">
+<div class="thumb-wrap"><img class="thumb" src="20250814_1243_Professional Product Shoot_remix_01k2kpp3kkejbadjvmvanyzceq.png"></div>
 </a>
-<p>Yellow handled jerrycan</p>
+<p>Clear PET jar</p>
 </li>
 
 <li>
-<a href="20250814_1304_Red Plastic Container_remix_01k2kqx1x2e5rr551da3hdvzpf.png" class="prod" data-caption="Transparent jerrycan">
-<div class="thumb-wrap">
-<img class="thumb" src="20250814_1304_Red Plastic Container_remix_01k2kqx1x2e5rr551da3hdvzpf.png">
-</div>
+<a href="20250825_1541_Plastic Bottle Showcase_remix_01k3gb92apfngbjykz37qmsq99.png" class="prod">
+<div class="thumb-wrap"><img class="thumb" src="20250825_1541_Plastic Bottle Showcase_remix_01k3gb92apfngbjykz37qmsq99.png"></div>
 </a>
-<p>Transparent jerrycan</p>
+<p>Green PET bottle</p>
+</li>
+
+</ul>
+</section>
+
+<!-- INJECTION -->
+<section class="product-section">
+<h2>Injection Moulding</h2>
+
+<ul class="product-list">
+
+<li>
+<a href="20250825_1547_Black Plastic Component_remix_01k3gbje5net69db7jbtdcv4qm.png" class="prod">
+<div class="thumb-wrap"><img class="thumb" src="20250825_1547_Black Plastic Component_remix_01k3gbje5net69db7jbtdcv4qm.png"></div>
+</a>
+<p>Industrial part</p>
 </li>
 
 <li>
-<a href="20250814_1307_Professional Product Shoot_remix_01k2kr2swxetb97gx2jhx1jj49.png" class="prod" data-caption="Red jerrycan">
-<div class="thumb-wrap">
-<img class="thumb" src="20250814_1307_Professional Product Shoot_remix_01k2kr2swxetb97gx2jhx1jj49.png">
-</div>
+<a href="2025-08-28.png" class="prod">
+<div class="thumb-wrap"><img class="thumb" src="2025-08-28.png"></div>
 </a>
-<p>Red jerrycan</p>
+<p>Blower wheel</p>
 </li>
 
 <li>
-<a href="431f8180-2db3-4e5a-a78c-29700554fa66.png" class="prod" data-caption="Yellow plastic bat">
-<div class="thumb-wrap">
-<img class="thumb" src="431f8180-2db3-4e5a-a78c-29700554fa66.png">
-</div>
+<a href="Custom-or-Standard-Kitchen-Range-Hood-Plastic-Motor-Blower-Parts-of-Kitchen-Chimney.webp" class="prod">
+<div class="thumb-wrap"><img class="thumb" src="Custom-or-Standard-Kitchen-Range-Hood-Plastic-Motor-Blower-Parts-of-Kitchen-Chimney.webp"></div>
 </a>
-<p>Yellow plastic bat</p>
+<p>Blower housing</p>
 </li>
 
 </ul>
@@ -307,7 +264,12 @@ h1,h2{color:var(--brand)}
 
 </main>
 
-<dialog class="lightbox" id="lb">
+<footer>
+© 2025 TSM Plastics
+</footer>
+
+<!-- LIGHTBOX -->
+<dialog id="lb">
 <button class="close" onclick="lb.close()">×</button>
 <img id="img">
 </dialog>
