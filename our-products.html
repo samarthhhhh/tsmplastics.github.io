@@ -14,9 +14,12 @@
     img{display:block;max-width:100%;height:auto}
 
     /* NAV */
-<div class="nav-inner">
-  <a href="/" class="nav-link">Home</a>
-</div>
+nav.site-nav{background:var(--brand);color:#fff;position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.nav-inner{max-width:var(--maxw);margin:auto;display:flex;gap:12px;align-items:center;padding:.6rem 1rem;flex-wrap:wrap}
+.nav-inner a{color:#fff;text-decoration:none;padding:.35rem .6rem;border-radius:8px}
+.nav-inner a:hover{background:rgba(255,255,255,.12)}
+.nav-inner .nav-cta{margin-left:auto;background:#fff;color:var(--brand);padding:.45rem .8rem;border-radius:10px}
+.nav-inner .nav-cta:hover{opacity:.9}
     
     /* MAIN */
     main{max-width:var(--maxw);margin:auto;padding:2rem 1rem}
@@ -61,16 +64,11 @@
   </style>
 </head>
 <body>
-  <nav class="site-nav">
-    <div class="nav-inner">
-      <a href="/" class="nav-link">Home</a>
-      <a href="/about.html" class="nav-link">About</a>
-      <a href="/industries.html" class="nav-link">Industries</a>
-      <a href="/our-products.html" class="nav-link">Our Products</a>
-      <a href="/clients.html" class="nav-link">Clients</a>
-      <a href="/contact.html" class="nav-cta">Get a Quote</a>
-    </div>
-  </nav>
+ <nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/">Home</a>
+  </div>
+</nav>
 
   <main>
     <h1>Our Products</h1>
